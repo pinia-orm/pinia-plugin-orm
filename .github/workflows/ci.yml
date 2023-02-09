@@ -32,7 +32,7 @@ jobs:
       - name: Lint
         run: pnpm run lint
 
-  test:vue3:
+  vue3:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -57,7 +57,7 @@ jobs:
       - name: Test
         run: pnpm run test:vue3
 
-  test:vue2:
+  vue2:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -82,7 +82,7 @@ jobs:
       - name: Test
         run: pnpm run test:vue2
 
-  test:coverage:
+  coverage:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
