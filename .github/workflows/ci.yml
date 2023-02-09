@@ -51,6 +51,9 @@ jobs:
       - name: Install
         run: pnpm install --no-frozen-lockfile
 
+      - name: Generate
+        run: pnpm run nuxt:generate
+
       - name: Build
         run: pnpm run build
 
@@ -76,6 +79,9 @@ jobs:
       - name: Install
         run: pnpm install --no-frozen-lockfile
 
+      - name: Generate
+        run: pnpm run nuxt:generate
+
       - name: Build
         run: pnpm run build
 
@@ -100,6 +106,9 @@ jobs:
 
       - name: Install
         run: pnpm install --no-frozen-lockfile
+
+      - name: Generate
+        run: pnpm run nuxt:generate
 
       - name: Build
         run: pnpm run build
@@ -128,6 +137,9 @@ jobs:
 
       - name: Build
         run: pnpm run build
+
+      - name: Generate
+        run: pnpm run nuxt:generate
 
       - name: Test
         run: pnpm run typecheck
