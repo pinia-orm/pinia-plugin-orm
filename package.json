@@ -18,7 +18,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "typecheck": "pnpm -C packages/core run typecheck",
-    "nuxt:generate":"pnpm -C packages/nuxt run dev:prepare",
+    "nuxt:generate": "pnpm -C packages/nuxt run dev:prepare",
     "test": "pnpm -C packages/core run test:watch",
     "test:ui": "pnpm -C packages/core run test:ui",
     "test:vue3": "pnpm -C packages/core run test:3",
