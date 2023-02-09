@@ -1,0 +1,47 @@
+{
+  "name": "@pinia-plugin-orm/nuxt",
+  "type": "module",
+  "version": "0.0.0",
+  "description": "Nuxt module for pinia-plugin-orm",
+  "exports": {
+    ".": {
+      "import": "./dist/module.mjs",
+      "require": "./dist/module.cjs"
+    }
+  },
+  "main": "./dist/module.cjs",
+  "types": "./dist/types.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "nuxt-module-build",
+    "dev": "nuxi dev playground",
+    "dev:build": "nuxi build playground",
+    "dev:prepare": "nuxt-module-build --stub && nuxi prepare playground"
+  },
+  "keywords": [
+    "pinia-plugin",
+    "orm",
+    "nuxt"
+  ],
+  "author": "Elone Hoo <hi@elonehoo.me>",
+  "license": "MIT",
+  "peerDependencies": {
+    "pinia/nuxt":">=0.4.6",
+    "pinia-plugin-orm":">=o.o.1"
+  },
+  "dependencies": {
+    "@nuxt/kit": "^3.2.0"
+  },
+  "devDependencies": {
+    "@nuxt/module-builder": "^0.2.1",
+    "@nuxt/schema": "^3.2.0",
+    "@pinia/nuxt": "^0.4.6",
+    "nuxt": "^3.2.0",
+    "pinia": "^2.0.30",
+    "pinia-plugin-orm": "workspace:*",
+    "std-env": "^3.3.2",
+    "vue": "^3.2.47"
+  }
+}
