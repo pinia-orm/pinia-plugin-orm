@@ -1,33 +1,17 @@
 {
-  "name": "@elonehoo/starter-ts",
+  "name": "@pinia-plugin-orm/monorepo",
+  "private": "true",
   "type": "module",
-  "version": "0.0.2",
-  "description": "Starter template for TypeScript library",
+  "version": "0.0.0",
+  "description": "The Pinia plugin to enable Object-Relational Mapping access to the Pinia Store.",
   "author": "Elone Hoo <hi@elonehoo.me>",
   "license": "MIT",
-  "homepage": "https://github.com/elonehoo/starter-ts",
+  "homepage": "https://github.com/pinia-orm/pinia-plugin-orm",
   "repository": {
     "type": "git",
-    "url": "https://github.com/elonehoo/starter-ts"
+    "url": "https://github.com/pinia-orm/pinia-plugin-orm"
   },
-  "bugs": "https://github.com/elonehoo/starter-ts/issues",
-  "keywords": [
-    "template",
-    "TypeScript"
-  ],
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "require": "./dist/index.cjs",
-      "import": "./dist/index.js"
-    }
-  },
-  "main": "dist/index.js",
-  "module": "dist/index.cjs",
-  "types": "dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
+  "bugs": "https://github.com/pinia-orm/pinia-plugin-orm/issues",
   "scripts": {
     "dev": "tsup --watch",
     "build": "tsup",
@@ -36,15 +20,19 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "typecheck": "tsc --noEmit",
-    "release": "bumpp package.json --commit --push --tag && pnpm -r publish --access public"
+    "release": "bumpp package.json packages/*/package.json --commit --push --tag && pnpm -r publish --access public"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.35.1",
     "@types/node": "^18.11.19",
+    "@vitest/ui": "^0.28.4",
     "bumpp": "^8.2.1",
     "eslint": "^8.33.0",
     "tsup": "^6.5.0",
     "typescript": "^4.9.5",
-    "vite": "^4.1.1"
+    "vite": "^4.1.1",
+    "vitest": "^0.28.4",
+    "@vitest/coverage-c8": "^0.28.4",
+    "c8": "^7.12.0"
   }
 }

@@ -1,0 +1,38 @@
+{
+  "name": "pinia-plugin-orm",
+  "version": "0.0.0",
+  "type": "module",
+  "description": "",
+  "types": "dist/index.d.ts",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.js"
+    },
+    "./*": "./*",
+    "./decorators": {
+      "types": "./dist/decorators.d.ts",
+      "require": "./dist/decorators.cjs",
+      "import": "./dist/decorators.js"
+    },
+    "./casts": {
+      "types": "./dist/casts.d.ts",
+      "require": "./dist/casts.cjs",
+      "import": "./dist/casts.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+  },
+  "keywords": [
+    "pinia-plugin",
+    "orm"
+  ],
+  "author": "Elone Hoo <hi@elonehoo.me>",
+  "license": "MIT"
+}
