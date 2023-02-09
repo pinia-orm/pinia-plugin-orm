@@ -14,7 +14,7 @@
   "bugs": "https://github.com/pinia-orm/pinia-plugin-orm/issues",
   "scripts": {
     "dev": "pnpm run --filter \"./packages/**\" -r dev",
-    "build": "pnpm run --filter \"./packages/**\" -r build",
+    "build": "pnpm run nuxt:generate && pnpm run --filter \"./packages/**\" -r build",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "typecheck": "pnpm -C packages/core run typecheck",
