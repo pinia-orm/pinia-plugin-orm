@@ -1,7 +1,7 @@
 {
   "name": "pinia-plugin-orm",
   "type": "module",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "The Pinia plugin to enable Object-Relational Mapping access to the Pinia Store.",
   "author": "Elone Hoo <hi@elonehoo.me>",
   "license": "MIT",
