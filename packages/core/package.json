@@ -34,5 +34,41 @@
     "dist"
   ],
   "scripts": {
+    "dev": "tsup --watch src",
+    "build": "tsup",
+    "test": "vitest",
+    "test:ui": "vitest --ui"
+  },
+  "peerDependencies": {
+    "pinia": ">=2.0.29"
+  },
+  "dependencies": {
+    "@pinia-plugin-orm/normalizr": "workspace:*"
+  },
+  "devDependencies": {
+    "@pinia/testing": "^0.0.14",
+    "@types/uuid": "^9.0.0",
+    "@vue/composition-api": "^1.7.1",
+    "@vue/test-utils": "^2.2.10",
+    "core-js": "^3.27.2",
+    "happy-dom": "^8.2.6",
+    "mkdist": "^1.1.1",
+    "nanoid": "^4.0.1",
+    "pinia": "^2.0.30",
+    "size-limit": "^8.1.2",
+    "std-env": "^3.3.2",
+    "uuid": "^9.0.0",
+    "vue": "^3.2.47",
+    "vue-demi": "^0.13.11",
+    "vue2": "npm:vue@^2.7.14"
+  },
+  "pnpm": {
+    "packageExtensions": {
+      "@vue/composition-api": {
+        "peerDependencies": {
+          "vue": "*"
+        }
+      }
+    }
   }
 }

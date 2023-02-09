@@ -2,7 +2,8 @@ import type { Options } from 'tsup'
 
 export default <Options>{
   entryPoints: [
-    'src/*.js',
+    'src/*.ts',
+    'src/**/*.ts',
   ],
   clean: true,
   format: ['cjs', 'esm'],
