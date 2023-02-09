@@ -29,7 +29,7 @@ describe('feature/relations/morph_one_save', () => {
 
     usersRepo.save({
       id: 1,
-      name: 'John Doe',
+      name: 'Elone Hoo',
       image: {
         id: 1,
         url: '/profile.jpg',
@@ -40,7 +40,7 @@ describe('feature/relations/morph_one_save', () => {
 
     assertState({
       users: {
-        1: { id: 1, name: 'John Doe' },
+        1: { id: 1, name: 'Elone Hoo' },
       },
       images: {
         1: {
@@ -58,7 +58,7 @@ describe('feature/relations/morph_one_save', () => {
 
     usersRepo.save({
       id: 1,
-      name: 'John Doe',
+      name: 'Elone Hoo',
       image: {
         id: 1,
         url: '/profile.jpg',
@@ -68,7 +68,7 @@ describe('feature/relations/morph_one_save', () => {
 
     assertState({
       users: {
-        1: { id: 1, name: 'John Doe' },
+        1: { id: 1, name: 'Elone Hoo' },
       },
       images: {
         1: {
@@ -86,12 +86,12 @@ describe('feature/relations/morph_one_save', () => {
 
     usersRepo.save({
       id: 1,
-      name: 'John Doe',
+      name: 'Elone Hoo',
     })
 
     assertState({
       users: {
-        1: { id: 1, name: 'John Doe' },
+        1: { id: 1, name: 'Elone Hoo' },
       },
     })
   })
@@ -101,13 +101,13 @@ describe('feature/relations/morph_one_save', () => {
 
     usersRepo.save({
       id: 1,
-      name: 'John Doe',
+      name: 'Elone Hoo',
       image: null,
     })
 
     assertState({
       users: {
-        1: { id: 1, name: 'John Doe' },
+        1: { id: 1, name: 'Elone Hoo' },
       },
     })
   })

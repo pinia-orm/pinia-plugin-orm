@@ -25,7 +25,7 @@ describe('feature/hooks/deleted', () => {
 
     fillState({
       users: {
-        1: { id: 1, name: 'John Doe', age: 30 },
+        1: { id: 1, name: 'Elone Hoo', age: 30 },
       },
     })
 
@@ -35,7 +35,7 @@ describe('feature/hooks/deleted', () => {
 
     assertState({
       users: {
-        1: { id: 1, name: 'John Doe', age: 30 },
+        1: { id: 1, name: 'Elone Hoo', age: 30 },
       },
     })
   })
@@ -57,8 +57,8 @@ describe('feature/hooks/deleted', () => {
 
     fillState({
       users: {
-        1: { id: 1, name: 'John Doe', age: 10 },
-        2: { id: 2, name: 'John Doe', age: 10 },
+        1: { id: 1, name: 'Elone Hoo', age: 10 },
+        2: { id: 2, name: 'Elone Hoo', age: 10 },
       },
     })
 
@@ -88,8 +88,8 @@ describe('feature/hooks/deleted', () => {
 
     fillState({
       users: {
-        1: { id: 1, name: 'John Doe', age: 10 },
-        2: { id: 2, name: 'John Doe', age: 10 },
+        1: { id: 1, name: 'Elone Hoo', age: 10 },
+        2: { id: 2, name: 'Elone Hoo', age: 10 },
       },
     })
 
@@ -99,7 +99,7 @@ describe('feature/hooks/deleted', () => {
 
     assertState({
       users: {
-        2: { id: 2, name: 'John Doe', age: 10 },
+        2: { id: 2, name: 'Elone Hoo', age: 10 },
       },
     })
   })

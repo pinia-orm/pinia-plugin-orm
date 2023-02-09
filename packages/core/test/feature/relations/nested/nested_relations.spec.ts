@@ -42,14 +42,14 @@ describe('feature/relations/nested/nested_relations', () => {
       title: 'Title 01',
       author: {
         id: 1,
-        name: 'John Doe',
+        name: 'Elone Hoo',
         followers: [{ id: 1 }, { id: 2 }],
       },
     })
 
     assertState({
       users: {
-        1: { id: 1, name: 'John Doe' },
+        1: { id: 1, name: 'Elone Hoo' },
       },
       followers: {
         1: { id: 1, userId: 1 },

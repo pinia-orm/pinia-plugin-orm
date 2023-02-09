@@ -16,7 +16,7 @@ describe('feature/repository/destroy', () => {
     const userRepo = useRepo(User)
 
     userRepo.save([
-      { id: 1, name: 'John Doe' },
+      { id: 1, name: 'Elone Hoo' },
       { id: 2, name: 'Jane Doe' },
       { id: 3, name: 'Johnny Doe' },
     ])
@@ -25,7 +25,7 @@ describe('feature/repository/destroy', () => {
 
     assertState({
       users: {
-        1: { id: 1, name: 'John Doe' },
+        1: { id: 1, name: 'Elone Hoo' },
         3: { id: 3, name: 'Johnny Doe' },
       },
     })
@@ -35,7 +35,7 @@ describe('feature/repository/destroy', () => {
     const userRepo = useRepo(User)
 
     userRepo.save([
-      { id: 1, name: 'John Doe' },
+      { id: 1, name: 'Elone Hoo' },
       { id: 2, name: 'Jane Doe' },
       { id: 3, name: 'Johnny Doe' },
     ])
@@ -44,7 +44,7 @@ describe('feature/repository/destroy', () => {
 
     assertState({
       users: {
-        1: { id: 1, name: 'John Doe' },
+        1: { id: 1, name: 'Elone Hoo' },
       },
     })
   })
@@ -53,7 +53,7 @@ describe('feature/repository/destroy', () => {
     const userRepo = useRepo(User)
 
     userRepo.save([
-      { id: 1, name: 'John Doe' },
+      { id: 1, name: 'Elone Hoo' },
       { id: 2, name: 'Jane Doe' },
       { id: 3, name: 'Johnny Doe' },
     ])
@@ -67,7 +67,7 @@ describe('feature/repository/destroy', () => {
   it('returns `null` when no record was deleted', () => {
     const userRepo = useRepo(User)
 
-    userRepo.save([{ id: 1, name: 'John Doe' }])
+    userRepo.save([{ id: 1, name: 'Elone Hoo' }])
 
     const user = userRepo.destroy(2)
 
@@ -75,7 +75,7 @@ describe('feature/repository/destroy', () => {
 
     assertState({
       users: {
-        1: { id: 1, name: 'John Doe' },
+        1: { id: 1, name: 'Elone Hoo' },
       },
     })
   })
@@ -84,7 +84,7 @@ describe('feature/repository/destroy', () => {
     const userRepo = useRepo(User)
 
     userRepo.save([
-      { id: 1, name: 'John Doe' },
+      { id: 1, name: 'Elone Hoo' },
       { id: 2, name: 'Jane Doe' },
       { id: 3, name: 'Johnny Doe' },
     ])
@@ -98,7 +98,7 @@ describe('feature/repository/destroy', () => {
     const userRepo = useRepo(User)
 
     userRepo.save([
-      { id: 1, name: 'John Doe' },
+      { id: 1, name: 'Elone Hoo' },
       { id: 2, name: 'Jane Doe' },
       { id: 3, name: 'Johnny Doe' },
     ])

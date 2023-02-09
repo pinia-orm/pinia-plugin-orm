@@ -15,11 +15,11 @@ describe('feature/repository/fresh', () => {
   it('inserts a new record to the store', () => {
     const userRepo = useRepo(User)
 
-    userRepo.fresh({ id: 1, name: 'John Doe' })
+    userRepo.fresh({ id: 1, name: 'Elone Hoo' })
 
     assertState({
       users: {
-        1: { id: 1, name: 'John Doe' },
+        1: { id: 1, name: 'Elone Hoo' },
       },
     })
   })
@@ -28,13 +28,13 @@ describe('feature/repository/fresh', () => {
     const userRepo = useRepo(User)
 
     userRepo.fresh([
-      { id: 1, name: 'John Doe' },
+      { id: 1, name: 'Elone Hoo' },
       { id: 2, name: 'Jane Doe' },
     ])
 
     assertState({
       users: {
-        1: { id: 1, name: 'John Doe' },
+        1: { id: 1, name: 'Elone Hoo' },
         2: { id: 2, name: 'Jane Doe' },
       },
     })
@@ -45,7 +45,7 @@ describe('feature/repository/fresh', () => {
 
     fillState({
       users: {
-        1: { id: 1, name: 'John Doe' },
+        1: { id: 1, name: 'Elone Hoo' },
         2: { id: 2, name: 'Jane Doe' },
       },
     })

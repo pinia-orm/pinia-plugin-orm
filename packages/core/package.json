@@ -37,10 +37,12 @@
   "scripts": {
     "dev": "tsup --watch src",
     "build": "tsup",
+    "typecheck": "tsc --noEmit",
     "test:watch": "vue-demi-switch 3 && vitest --watch",
     "test:ui": "vue-demi-switch 3 && vitest --ui",
-    "test:2": "vue-demi-switch 2 vue2 && vitest",
+    "test:2": "vue-demi-switch 2 vue2 && vitest --run",
     "test:3": "vue-demi-switch 3 && vitest --run",
+    "coverage": "vue-demi-switch 3 && vitest --run --coverage",
     "test": "pnpm run test:3"
   },
   "peerDependencies": {

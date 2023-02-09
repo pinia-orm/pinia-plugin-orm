@@ -57,7 +57,7 @@ describe('feature/hooks/saving', () => {
 
     const savingMethod = vi.spyOn(User, 'saving')
 
-    useRepo(User).save({ id: 1, name: 'John Doe', age: 30, post: { id: 1, title: 'News' } })
+    useRepo(User).save({ id: 1, name: 'Elone Hoo', age: 30, post: { id: 1, title: 'News' } })
 
     expect(savingMethod).toHaveBeenCalledOnce()
 
@@ -70,7 +70,7 @@ describe('feature/hooks/saving', () => {
       },
     })
 
-    useRepo(User).save({ id: 1, name: 'John Doe', age: 30, post: null })
+    useRepo(User).save({ id: 1, name: 'Elone Hoo', age: 30, post: null })
 
     assertState({
       users: {
@@ -98,7 +98,7 @@ describe('feature/hooks/saving', () => {
 
     const savingMethod = vi.spyOn(User, 'saving')
 
-    useRepo(User).save({ id: 1, name: 'John Doe', age: 30 })
+    useRepo(User).save({ id: 1, name: 'Elone Hoo', age: 30 })
 
     expect(savingMethod).toHaveBeenCalledOnce()
 

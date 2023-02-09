@@ -34,7 +34,7 @@ describe('feature/relations/morph_one_retrieve', () => {
   }
 
   const ENTITIES = {
-    users: [{ id: 1, name: 'John Doe' }],
+    users: [{ id: 1, name: 'Elone Hoo' }],
     posts: [
       { id: 1, title: 'Hello, world!' },
       { id: 2, title: 'Hello, world! Again!' },
@@ -77,7 +77,7 @@ describe('feature/relations/morph_one_retrieve', () => {
       expect(user.image).toBeInstanceOf(Image)
       assertModel(user, {
         id: 1,
-        name: 'John Doe',
+        name: 'Elone Hoo',
         image: {
           id: 1,
           url: '/profile.jpg',
@@ -117,14 +117,14 @@ describe('feature/relations/morph_one_retrieve', () => {
     it('can eager load missing relation as `null`', () => {
       const usersRepo = useRepo(User)
 
-      usersRepo.save({ id: 1, name: 'John Doe' })
+      usersRepo.save({ id: 1, name: 'Elone Hoo' })
 
       const user = usersRepo.with('image').first()!
 
       expect(user).toBeInstanceOf(User)
       assertModel(user, {
         id: 1,
-        name: 'John Doe',
+        name: 'Elone Hoo',
         image: null,
       })
     })

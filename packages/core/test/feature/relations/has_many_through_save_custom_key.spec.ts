@@ -90,7 +90,7 @@ describe('feature/relations/has_many_save_custom_key', () => {
     const userRepo = useRepo(User)
 
     userRepo.save([
-      { id: 1, name: 'John Doe', countryId: 1 },
+      { id: 1, name: 'Elone Hoo', countryId: 1 },
     ])
 
     countryRepo.save({
@@ -106,7 +106,7 @@ describe('feature/relations/has_many_save_custom_key', () => {
         1: { countryId: 1 },
       },
       users: {
-        1: { id: 1, name: 'John Doe', countryId: 1 },
+        1: { id: 1, name: 'Elone Hoo', countryId: 1 },
       },
       posts: {
         1: { postId: 1, userId: 1, title: '100' },

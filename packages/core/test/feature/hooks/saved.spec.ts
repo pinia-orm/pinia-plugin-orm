@@ -42,13 +42,13 @@ describe('feature/hooks/saved', () => {
 
     const savedMethod = vi.spyOn(User, 'saved')
 
-    useRepo(User).save({ id: 1, name: 'John Doe', age: 30 })
+    useRepo(User).save({ id: 1, name: 'Elone Hoo', age: 30 })
 
     expect(savedMethod).toHaveBeenCalledOnce()
 
     assertState({
       users: {
-        1: { id: 1, name: 'John Doe', age: 30 },
+        1: { id: 1, name: 'Elone Hoo', age: 30 },
       },
     })
   })

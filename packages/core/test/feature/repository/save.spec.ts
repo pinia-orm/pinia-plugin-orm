@@ -50,11 +50,11 @@ describe('feature/repository/save', () => {
     })
     setActivePinia(pinia)
 
-    userRepo.save({ id: 1, name: 'John Doe', age: 30 })
+    userRepo.save({ id: 1, name: 'Elone Hoo', age: 30 })
 
     assertState({
       users: {
-        1: { id: 1, name: 'John Doe', age: 30 },
+        1: { id: 1, name: 'Elone Hoo', age: 30 },
       },
     }, { currentId: null })
   })
@@ -63,13 +63,13 @@ describe('feature/repository/save', () => {
     const userRepo = useRepo(User)
 
     userRepo.save([
-      { id: 1, name: 'John Doe', age: 30 },
+      { id: 1, name: 'Elone Hoo', age: 30 },
       { id: 2, name: 'Jane Doe', age: 20 },
     ])
 
     assertState({
       users: {
-        1: { id: 1, name: 'John Doe', age: 30 },
+        1: { id: 1, name: 'Elone Hoo', age: 30 },
         2: { id: 2, name: 'Jane Doe', age: 20 },
       },
     }, { currentId: null })
@@ -80,7 +80,7 @@ describe('feature/repository/save', () => {
 
     fillState({
       users: {
-        1: { id: 1, name: 'John Doe', age: 30 },
+        1: { id: 1, name: 'Elone Hoo', age: 30 },
       },
     })
 
@@ -88,7 +88,7 @@ describe('feature/repository/save', () => {
 
     assertState({
       users: {
-        1: { id: 1, name: 'John Doe', age: 20 },
+        1: { id: 1, name: 'Elone Hoo', age: 20 },
       },
     })
   })
@@ -98,7 +98,7 @@ describe('feature/repository/save', () => {
 
     fillState({
       users: {
-        1: { id: 1, name: 'John Doe', age: 30 },
+        1: { id: 1, name: 'Elone Hoo', age: 30 },
       },
     })
 
@@ -109,7 +109,7 @@ describe('feature/repository/save', () => {
 
     assertState({
       users: {
-        1: { id: 1, name: 'John Doe', age: 20 },
+        1: { id: 1, name: 'Elone Hoo', age: 20 },
         2: { id: 2, name: 'Jane Doe', age: 10 },
       },
     })
@@ -118,23 +118,23 @@ describe('feature/repository/save', () => {
   it('returns a model', () => {
     const userRepo = useRepo(User)
 
-    const user = userRepo.save({ id: 1, name: 'John Doe', age: 30 })
+    const user = userRepo.save({ id: 1, name: 'Elone Hoo', age: 30 })
 
     expect(user).toBeInstanceOf(User)
-    assertModel(user, { id: 1, name: 'John Doe', age: 30 })
+    assertModel(user, { id: 1, name: 'Elone Hoo', age: 30 })
   })
 
   it('returns multiple models when saving multiple records', () => {
     const userRepo = useRepo(User)
 
     const users = userRepo.save([
-      { id: 1, name: 'John Doe', age: 30 },
+      { id: 1, name: 'Elone Hoo', age: 30 },
       { id: 2, name: 'Jane Doe', age: 20 },
     ])
 
     assertInstanceOf(users, User)
     assertModels(users, [
-      { id: 1, name: 'John Doe', age: 30 },
+      { id: 1, name: 'Elone Hoo', age: 30 },
       { id: 2, name: 'Jane Doe', age: 20 },
     ])
   })

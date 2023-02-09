@@ -18,16 +18,16 @@ describe('feature/repository/retrieves_where', () => {
 
     fillState({
       users: {
-        1: { id: 1, name: 'John Doe', age: 40 },
+        1: { id: 1, name: 'Elone Hoo', age: 40 },
         2: { id: 2, name: 'Jane Doe', age: 30 },
         3: { id: 3, name: 'Johnny Doe', age: 20 },
       },
     })
 
-    const users = userRepo.where('name', 'John Doe').orWhere('age', 30).get()
+    const users = userRepo.where('name', 'Elone Hoo').orWhere('age', 30).get()
 
     const expected = [
-      { id: 1, name: 'John Doe', age: 40 },
+      { id: 1, name: 'Elone Hoo', age: 40 },
       { id: 2, name: 'Jane Doe', age: 30 },
     ]
 
@@ -41,7 +41,7 @@ describe('feature/repository/retrieves_where', () => {
 
     fillState({
       users: {
-        1: { id: 1, name: 'John Doe', age: 40 },
+        1: { id: 1, name: 'Elone Hoo', age: 40 },
         2: { id: 2, name: 'Jane Doe', age: 30 },
         3: { id: 3, name: 'Johnny Doe', age: 20 },
       },

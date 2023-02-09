@@ -17,7 +17,7 @@ describe('feature/repository/retrieves_revive', () => {
 
     fillState({
       users: {
-        1: { id: 1, name: 'John Doe' },
+        1: { id: 1, name: 'Elone Hoo' },
         2: { id: 2, name: 'Jane Doe' },
         3: { id: 3, name: 'Johnny Doe' },
       },
@@ -38,7 +38,7 @@ describe('feature/repository/retrieves_revive', () => {
 
     fillState({
       users: {
-        1: { id: 1, name: 'John Doe' },
+        1: { id: 1, name: 'Elone Hoo' },
         2: { id: 2, name: 'Jane Doe' },
         3: { id: 3, name: 'Johnny Doe' },
       },
@@ -53,7 +53,7 @@ describe('feature/repository/retrieves_revive', () => {
 
     fillState({
       users: {
-        1: { id: 1, name: 'John Doe' },
+        1: { id: 1, name: 'Elone Hoo' },
         2: { id: 2, name: 'Jane Doe' },
         3: { id: 3, name: 'Johnny Doe' },
       },

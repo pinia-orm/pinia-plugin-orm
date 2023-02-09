@@ -33,7 +33,7 @@ describe('feature/relations/has_many_insert_uid', () => {
     const usersRepo = useRepo(User)
 
     usersRepo.save({
-      name: 'John Doe',
+      name: 'Elone Hoo',
       posts: [
         { id: 1, title: 'Title 01' },
         { id: 2, title: 'Title 02' },
@@ -42,7 +42,7 @@ describe('feature/relations/has_many_insert_uid', () => {
 
     assertState({
       users: {
-        uid1: { id: 'uid1', name: 'John Doe' },
+        uid1: { id: 'uid1', name: 'Elone Hoo' },
       },
       posts: {
         1: { id: 1, userId: 'uid1', title: 'Title 01' },
@@ -75,7 +75,7 @@ describe('feature/relations/has_many_insert_uid', () => {
     const usersRepo = useRepo(User)
 
     usersRepo.save({
-      name: 'John Doe',
+      name: 'Elone Hoo',
       posts: [
         { id: 1, title: 'Title 01' },
         { id: 2, title: 'Title 02' },
@@ -84,7 +84,7 @@ describe('feature/relations/has_many_insert_uid', () => {
 
     assertState({
       users: {
-        uid1: { id: 'uid1', name: 'John Doe' },
+        uid1: { id: 'uid1', name: 'Elone Hoo' },
       },
       posts: {
         1: { id: 1, userId: 'uid1', title: 'Title 01' },

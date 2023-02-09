@@ -31,7 +31,7 @@ describe('feature/relations/has_one_retrieve_composite', () => {
     const usersRepo = useRepo(User)
     const phonesRepo = useRepo(Phone)
 
-    usersRepo.save({ id: 1, secondId: 1, name: 'John Doe' })
+    usersRepo.save({ id: 1, secondId: 1, name: 'Elone Hoo' })
     phonesRepo.save({ id: 1, userId: 1, userSecondId: 1, number: '123-4567-8912' })
 
     const user = usersRepo.with('phone').first()!
@@ -41,7 +41,7 @@ describe('feature/relations/has_one_retrieve_composite', () => {
     assertModel(user, {
       id: 1,
       secondId: 1,
-      name: 'John Doe',
+      name: 'Elone Hoo',
       phone: {
         id: 1,
         userId: 1,
@@ -54,7 +54,7 @@ describe('feature/relations/has_one_retrieve_composite', () => {
   it('can eager load missing relation as `null`', () => {
     const usersRepo = useRepo(User)
 
-    usersRepo.save({ id: 1, secondId: 1, name: 'John Doe' })
+    usersRepo.save({ id: 1, secondId: 1, name: 'Elone Hoo' })
 
     const user = usersRepo.with('phone').first()!
 
@@ -62,7 +62,7 @@ describe('feature/relations/has_one_retrieve_composite', () => {
     assertModel(user, {
       id: 1,
       secondId: 1,
-      name: 'John Doe',
+      name: 'Elone Hoo',
       phone: null,
     })
   })

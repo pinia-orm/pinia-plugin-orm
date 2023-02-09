@@ -31,8 +31,8 @@ describe('feature/relations/belongs_to_retrieve_composite', () => {
     const userRepo = useRepo(User)
     const postsRepo = useRepo(Post)
 
-    userRepo.save({ id: 1, secondId: 1, name: 'John Doe' })
-    userRepo.save({ id: 1, secondId: 1, name: 'John Doe' })
+    userRepo.save({ id: 1, secondId: 1, name: 'Elone Hoo' })
+    userRepo.save({ id: 1, secondId: 1, name: 'Elone Hoo' })
     postsRepo.save({ id: 1, userId: 1, userSecondId: 1, title: 'Title 01' })
 
     const post = postsRepo.with('author').first()
@@ -44,7 +44,7 @@ describe('feature/relations/belongs_to_retrieve_composite', () => {
       userId: 1,
       userSecondId: 1,
       title: 'Title 01',
-      author: { id: 1, secondId: 1, name: 'John Doe' },
+      author: { id: 1, secondId: 1, name: 'Elone Hoo' },
     })
   })
 
@@ -69,7 +69,7 @@ describe('feature/relations/belongs_to_retrieve_composite', () => {
     const userRepo = useRepo(User)
     const postsRepo = useRepo(Post)
 
-    userRepo.save({ id: 1, secondId: 1, name: 'John Doe' })
+    userRepo.save({ id: 1, secondId: 1, name: 'Elone Hoo' })
     postsRepo.save({ id: 1, userId: null, userSecondId: null, title: 'Title 01' })
 
     const post = postsRepo.with('author').first()

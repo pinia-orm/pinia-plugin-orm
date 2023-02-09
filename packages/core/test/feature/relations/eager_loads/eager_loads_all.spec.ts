@@ -39,7 +39,7 @@ describe('feature/relations/eager_loads_all', () => {
     const postsRepo = useRepo(Post)
     const commentsRepo = useRepo(Comment)
 
-    usersRepo.save({ id: 1, name: 'John Doe' })
+    usersRepo.save({ id: 1, name: 'Elone Hoo' })
 
     postsRepo.save({ id: 1, userId: 1, title: 'Title 01' })
 
@@ -53,7 +53,7 @@ describe('feature/relations/eager_loads_all', () => {
       id: 1,
       userId: 1,
       title: 'Title 01',
-      author: { id: 1, name: 'John Doe' },
+      author: { id: 1, name: 'Elone Hoo' },
       comments: [{ id: 1, postId: 1, content: 'Content 01' }],
     })
   })

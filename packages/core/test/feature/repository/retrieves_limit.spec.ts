@@ -17,7 +17,7 @@ describe('feature/repository/retrieve_limit', () => {
 
     fillState({
       users: {
-        1: { id: 1, name: 'John Doe' },
+        1: { id: 1, name: 'Elone Hoo' },
         2: { id: 2, name: 'Jane Doe' },
         3: { id: 3, name: 'Johnny Doe' },
       },
@@ -26,7 +26,7 @@ describe('feature/repository/retrieve_limit', () => {
     const users = userRepo.limit(2).get()
 
     const expected = [
-      { id: 1, name: 'John Doe' },
+      { id: 1, name: 'Elone Hoo' },
       { id: 2, name: 'Jane Doe' },
     ]
 

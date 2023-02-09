@@ -19,13 +19,13 @@ describe('feature/repository/fresh_composite_key', () => {
     const userRepo = useRepo(User)
 
     userRepo.fresh([
-      { idA: 1, idB: 2, name: 'John Doe' },
+      { idA: 1, idB: 2, name: 'Elone Hoo' },
       { idA: 2, idB: 1, name: 'Jane Doe' },
     ])
 
     assertState({
       users: {
-        '[1,2]': { idA: 1, idB: 2, name: 'John Doe' },
+        '[1,2]': { idA: 1, idB: 2, name: 'Elone Hoo' },
         '[2,1]': { idA: 2, idB: 1, name: 'Jane Doe' },
       },
     })
@@ -37,7 +37,7 @@ describe('feature/repository/fresh_composite_key', () => {
     const userRepo = useRepo(User)
 
     expect(() => {
-      userRepo.insert({ idA: 1, name: 'John Doe' })
+      userRepo.insert({ idA: 1, name: 'Elone Hoo' })
     }).toThrow()
   })
 })

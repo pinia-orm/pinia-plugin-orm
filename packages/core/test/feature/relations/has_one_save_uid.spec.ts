@@ -33,7 +33,7 @@ describe('feature/relations/has_one_save_uid', () => {
     const usersRepo = useRepo(User)
 
     usersRepo.save({
-      name: 'John Doe',
+      name: 'Elone Hoo',
       phone: {
         id: 1,
         number: '123-4567-8912',
@@ -42,7 +42,7 @@ describe('feature/relations/has_one_save_uid', () => {
 
     assertState({
       users: {
-        uid1: { id: 'uid1', name: 'John Doe' },
+        uid1: { id: 'uid1', name: 'Elone Hoo' },
       },
       phones: {
         1: { id: 1, userId: 'uid1', number: '123-4567-8912' },
@@ -74,7 +74,7 @@ describe('feature/relations/has_one_save_uid', () => {
     const usersRepo = useRepo(User)
 
     usersRepo.save({
-      name: 'John Doe',
+      name: 'Elone Hoo',
       phone: {
         number: '123-4567-8912',
       },
@@ -82,7 +82,7 @@ describe('feature/relations/has_one_save_uid', () => {
 
     assertState({
       users: {
-        uid1: { id: 'uid1', name: 'John Doe' },
+        uid1: { id: 'uid1', name: 'Elone Hoo' },
       },
       phones: {
         uid2: { id: 'uid2', userId: 'uid1', number: '123-4567-8912' },
@@ -115,7 +115,7 @@ describe('feature/relations/has_one_save_uid', () => {
     const usersRepo = useRepo(User)
 
     usersRepo.save({
-      name: 'John Doe',
+      name: 'Elone Hoo',
       phone: {
         number: '123-4567-8912',
       },
@@ -123,7 +123,7 @@ describe('feature/relations/has_one_save_uid', () => {
 
     assertState({
       users: {
-        uid1: { id: 'uid1', name: 'John Doe' },
+        uid1: { id: 'uid1', name: 'Elone Hoo' },
       },
       phones: {
         uid1: { userId: 'uid1', number: '123-4567-8912' },

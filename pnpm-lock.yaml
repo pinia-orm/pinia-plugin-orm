@@ -30,7 +30,7 @@ importers:
 
   packages/core:
     specifiers:
-      '@pinia-plugin-orm/normalizr': workspace:^0.0.0
+      '@pinia-plugin-orm/normalizr': workspace:*
       '@pinia/testing': ^0.0.14
       '@types/uuid': ^9.0.0
       '@vue/composition-api': ^1.7.1

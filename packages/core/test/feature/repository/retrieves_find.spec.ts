@@ -22,7 +22,7 @@ describe('feature/repository/retrieves_find', () => {
 
     fillState({
       users: {
-        1: { id: 1, name: 'John Doe' },
+        1: { id: 1, name: 'Elone Hoo' },
         2: { id: 2, name: 'Jane Doe' },
         3: { id: 3, name: 'Johnny Doe' },
       },
@@ -39,7 +39,7 @@ describe('feature/repository/retrieves_find', () => {
 
     fillState({
       users: {
-        1: { id: 1, name: 'John Doe' },
+        1: { id: 1, name: 'Elone Hoo' },
         2: { id: 2, name: 'Jane Doe' },
         3: { id: 3, name: 'Johnny Doe' },
       },
@@ -55,7 +55,7 @@ describe('feature/repository/retrieves_find', () => {
 
     fillState({
       users: {
-        1: { id: 1, name: 'John Doe' },
+        1: { id: 1, name: 'Elone Hoo' },
         2: { id: 2, name: 'Jane Doe' },
         3: { id: 3, name: 'Johnny Doe' },
       },
@@ -66,7 +66,7 @@ describe('feature/repository/retrieves_find', () => {
     expect(users.length).toBe(2)
     assertInstanceOf(users, User)
     assertModels(users, [
-      { id: 1, name: 'John Doe' },
+      { id: 1, name: 'Elone Hoo' },
       { id: 3, name: 'Johnny Doe' },
     ])
   })
@@ -76,7 +76,7 @@ describe('feature/repository/retrieves_find', () => {
 
     fillState({
       users: {
-        1: { id: 1, name: 'John Doe' },
+        1: { id: 1, name: 'Elone Hoo' },
         2: { id: 2, name: 'Jane Doe' },
         3: { id: 3, name: 'Johnny Doe' },
       },
@@ -87,7 +87,7 @@ describe('feature/repository/retrieves_find', () => {
     expect(users.length).toBe(2)
     assertInstanceOf(users, User)
     assertModels(users, [
-      { id: 1, name: 'John Doe' },
+      { id: 1, name: 'Elone Hoo' },
       { id: 3, name: 'Johnny Doe' },
     ])
 
@@ -98,7 +98,7 @@ describe('feature/repository/retrieves_find', () => {
     expect(users2.length).toBe(2)
     assertInstanceOf(users2, User)
     assertModels(users2, [
-      { id: 1, name: 'John Doe' },
+      { id: 1, name: 'Elone Hoo' },
       { id: 3, name: 'Johnny Doe' },
     ])
   })

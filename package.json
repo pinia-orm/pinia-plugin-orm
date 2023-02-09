@@ -13,11 +13,16 @@
   },
   "bugs": "https://github.com/pinia-orm/pinia-plugin-orm/issues",
   "scripts": {
-    "dev": "tsup --watch",
-    "build": "tsup",
+    "dev": "pnpm run --filter \"./packages/**\" -r dev",
+    "build": "pnpm run --filter \"./packages/**\" -r build",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "typecheck": "tsc --noEmit",
+    "typecheck": "pnpm -C packages/core run typecheck",
+    "test": "pnpm -C packages/core run test:watch",
+    "test:ui": "pnpm -C packages/core run test:ui",
+    "test:vue3": "pnpm -C packages/core run test:3",
+    "test:vue2": "pnpm -C packages/core run test:2",
+    "test:coverage": "pnpm -C packages/core run coverage",
     "release": "bumpp package.json packages/*/package.json --commit --push --tag && pnpm -r publish --access public"
   },
   "devDependencies": {

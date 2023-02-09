@@ -18,7 +18,7 @@ describe('feature/repository/update', () => {
 
     fillState({
       users: {
-        1: { id: 1, name: 'John Doe', age: 40 },
+        1: { id: 1, name: 'Elone Hoo', age: 40 },
         2: { id: 2, name: 'Jane Doe', age: 30 },
         3: { id: 3, name: 'Johnny Doe', age: 20 },
       },
@@ -29,7 +29,7 @@ describe('feature/repository/update', () => {
     assertModel(userRepo.where('name', 'Jane Doe').first()!, { id: 2, name: 'Jane Doe', age: 50 })
     assertState({
       users: {
-        1: { id: 1, name: 'John Doe', age: 40 },
+        1: { id: 1, name: 'Elone Hoo', age: 40 },
         2: { id: 2, name: 'Jane Doe', age: 50 },
         3: { id: 3, name: 'Johnny Doe', age: 20 },
       },
@@ -41,7 +41,7 @@ describe('feature/repository/update', () => {
 
     fillState({
       users: {
-        1: { id: 1, name: 'John Doe', age: 40 },
+        1: { id: 1, name: 'Elone Hoo', age: 40 },
         2: { id: 2, name: 'Jane Doe', age: 30 },
         3: { id: 3, name: 'Johnny Doe', age: 20 },
       },
@@ -51,7 +51,7 @@ describe('feature/repository/update', () => {
 
     assertState({
       users: {
-        1: { id: 1, name: 'John Doe', age: 40 },
+        1: { id: 1, name: 'Elone Hoo', age: 40 },
         2: { id: 2, name: 'Jane Doe', age: 50 },
         3: { id: 3, name: 'Johnny Doe', age: 50 },
       },
@@ -63,7 +63,7 @@ describe('feature/repository/update', () => {
 
     fillState({
       users: {
-        1: { id: 1, name: 'John Doe', age: 40 },
+        1: { id: 1, name: 'Elone Hoo', age: 40 },
         2: { id: 2, name: 'Jane Doe', age: 30 },
         3: { id: 3, name: 'Johnny Doe', age: 20 },
       },
@@ -75,7 +75,7 @@ describe('feature/repository/update', () => {
 
     assertState({
       users: {
-        1: { id: 1, name: 'John Doe', age: 40 },
+        1: { id: 1, name: 'Elone Hoo', age: 40 },
         2: { id: 2, name: 'Jane Doe', age: 30 },
         3: { id: 3, name: 'Johnny Doe', age: 20 },
       },

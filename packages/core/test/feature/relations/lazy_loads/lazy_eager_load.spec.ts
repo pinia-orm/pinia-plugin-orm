@@ -27,7 +27,7 @@ describe('feature/relations/lazy_loads/lazy_eager_load', () => {
     const usersRepo = useRepo(User)
     const postsRepo = useRepo(Post)
 
-    usersRepo.save({ id: 1, name: 'John Doe' })
+    usersRepo.save({ id: 1, name: 'Elone Hoo' })
     postsRepo.save([
       { id: 1, userId: 1, title: 'Title 01' },
       { id: 2, userId: 1, title: 'Title 02' },
@@ -35,14 +35,14 @@ describe('feature/relations/lazy_loads/lazy_eager_load', () => {
 
     const users = usersRepo.all()
 
-    assertModels(users, [{ id: 1, name: 'John Doe' }])
+    assertModels(users, [{ id: 1, name: 'Elone Hoo' }])
 
     usersRepo.with('posts').load(users)
 
     assertModels(users, [
       {
         id: 1,
-        name: 'John Doe',
+        name: 'Elone Hoo',
         posts: [
           { id: 1, userId: 1, title: 'Title 01' },
           { id: 2, userId: 1, title: 'Title 02' },

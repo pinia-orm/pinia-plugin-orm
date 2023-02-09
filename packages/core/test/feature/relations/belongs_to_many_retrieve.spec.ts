@@ -127,14 +127,14 @@ describe('feature/relations/belongs_to_many_retrieve', () => {
   it('can eager load missing relation as empty array', () => {
     const usersRepo = useRepo(User)
 
-    usersRepo.save({ id: 1, name: 'John Doe' })
+    usersRepo.save({ id: 1, name: 'Elone Hoo' })
 
     const user = usersRepo.with('roles').first()!
 
     expect(user).toBeInstanceOf(User)
     assertModel(user, {
       id: 1,
-      name: 'John Doe',
+      name: 'Elone Hoo',
       roles: [],
     })
   })
@@ -144,7 +144,7 @@ describe('feature/relations/belongs_to_many_retrieve', () => {
 
     fillState({
       users: {
-        1: { id: 1, name: 'John Doe', permissions: [] },
+        1: { id: 1, name: 'Elone Hoo', permissions: [] },
       },
       roles: {
         1: { id: 1 },

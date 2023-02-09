@@ -30,7 +30,7 @@ describe('feature/relations/eager_loads_recursive', () => {
     const usersRepo = useRepo(User)
     const phonesRepo = useRepo(Phone)
 
-    usersRepo.save({ id: 1, name: 'John Doe' })
+    usersRepo.save({ id: 1, name: 'Elone Hoo' })
     phonesRepo.save({ id: 1, userId: 1, number: '123-4567-8912' })
 
     const user = usersRepo.withAllRecursive().first()!
@@ -40,7 +40,7 @@ describe('feature/relations/eager_loads_recursive', () => {
     expect(user.phone.user.phone.user).toBeInstanceOf(User)
     assertModel(user.phone.user.phone.user, {
       id: 1,
-      name: 'John Doe',
+      name: 'Elone Hoo',
     })
   })
 
@@ -48,7 +48,7 @@ describe('feature/relations/eager_loads_recursive', () => {
     const usersRepo = useRepo(User)
     const phonesRepo = useRepo(Phone)
 
-    usersRepo.save({ id: 1, name: 'John Doe' })
+    usersRepo.save({ id: 1, name: 'Elone Hoo' })
     phonesRepo.save({ id: 1, userId: 1, number: '123-4567-8912' })
 
     const user = usersRepo.withAllRecursive(1).first()!
@@ -56,7 +56,7 @@ describe('feature/relations/eager_loads_recursive', () => {
     expect(user.phone.user).toBeInstanceOf(User)
     assertModel(user.phone.user, {
       id: 1,
-      name: 'John Doe',
+      name: 'Elone Hoo',
     })
   })
 })

@@ -39,7 +39,7 @@ describe('feature/repository/retrieves_has', () => {
 
     fillState({
       users: {
-        1: { id: 1, name: 'John Doe' },
+        1: { id: 1, name: 'Elone Hoo' },
         2: { id: 2, name: 'Jane Doe' },
         3: { id: 3, name: 'Johnny Doe' },
       },
@@ -53,7 +53,7 @@ describe('feature/repository/retrieves_has', () => {
     const users = userRepo.has('posts').get()
 
     const expected = [
-      { id: 1, name: 'John Doe' },
+      { id: 1, name: 'Elone Hoo' },
       { id: 2, name: 'Jane Doe' },
     ]
 
@@ -67,7 +67,7 @@ describe('feature/repository/retrieves_has', () => {
 
     fillState({
       users: {
-        1: { id: 1, name: 'John Doe' },
+        1: { id: 1, name: 'Elone Hoo' },
         2: { id: 2, name: 'Jane Doe' },
         3: { id: 3, name: 'Johnny Doe' },
       },
@@ -81,7 +81,7 @@ describe('feature/repository/retrieves_has', () => {
     const users = userRepo.has('posts', 2).get()
 
     const expected = [
-      { id: 1, name: 'John Doe' },
+      { id: 1, name: 'Elone Hoo' },
     ]
 
     expect(users).toHaveLength(1)
@@ -94,7 +94,7 @@ describe('feature/repository/retrieves_has', () => {
 
     fillState({
       users: {
-        1: { id: 1, name: 'John Doe' },
+        1: { id: 1, name: 'Elone Hoo' },
         2: { id: 2, name: 'Jane Doe' },
         3: { id: 3, name: 'Johnny Doe' },
       },
@@ -122,7 +122,7 @@ describe('feature/repository/retrieves_has', () => {
 
     fillState({
       users: {
-        1: { id: 1, name: 'John Doe' },
+        1: { id: 1, name: 'Elone Hoo' },
         2: { id: 2, name: 'Jane Doe' },
         3: { id: 3, name: 'Johnny Doe' },
       },
@@ -149,7 +149,7 @@ describe('feature/repository/retrieves_has', () => {
 
     fillState({
       users: {
-        1: { id: 1, name: 'John Doe' },
+        1: { id: 1, name: 'Elone Hoo' },
         2: { id: 2, name: 'Jane Doe' },
         3: { id: 3, name: 'Johnny Doe' },
       },
@@ -179,7 +179,7 @@ describe('feature/repository/retrieves_has', () => {
     expect(users).toHaveLength(1)
     assertInstanceOf(users, User)
     assertModels(users, expected)
-    assertModels(users2, [{ id: 1, name: 'John Doe' }, { id: 2, name: 'Jane Doe' }])
+    assertModels(users2, [{ id: 1, name: 'Elone Hoo' }, { id: 2, name: 'Jane Doe' }])
   })
 
   it('can filter by "where has" clauses with closure', () => {
@@ -187,7 +187,7 @@ describe('feature/repository/retrieves_has', () => {
 
     fillState({
       users: {
-        1: { id: 1, name: 'John Doe' },
+        1: { id: 1, name: 'Elone Hoo' },
         2: { id: 2, name: 'Jane Doe' },
         3: { id: 3, name: 'Johnny Doe' },
       },
@@ -217,7 +217,7 @@ describe('feature/repository/retrieves_has', () => {
 
     fillState({
       users: {
-        1: { id: 1, name: 'John Doe' },
+        1: { id: 1, name: 'Elone Hoo' },
         2: { id: 2, name: 'Jane Doe' },
         3: { id: 3, name: 'Johnny Doe' },
       },

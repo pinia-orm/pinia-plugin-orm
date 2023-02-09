@@ -736,7 +736,7 @@ export class Query<M extends Model = Model> {
 
     if (Object.values(modelTypes).length > 0 || isChildEntity) {
       const modelTypesKeys = Object.keys(modelTypes)
-      const recordsByTypes:any = {}
+      const recordsByTypes: any = {}
       records = isArray(records) ? records : [records]
 
       records.forEach((record: Element) => {
@@ -927,7 +927,7 @@ export class Query<M extends Model = Model> {
         const relationIds = models.map((relation: M) => {
           return relation[relation.$getLocalKey()]
         })
-        const record:any = {}
+        const record: any = {}
 
         if (relation instanceof BelongsToMany) {
           this.newQuery(relation.pivot.$entity()).where(relation.foreignPivotKey, model[model.$getLocalKey()]).delete()

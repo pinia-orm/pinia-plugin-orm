@@ -45,8 +45,8 @@ describe('feature/hooks/created', () => {
     const savedMethod = vi.spyOn(User, 'saved')
 
     useRepo(User).save([
-      { id: 1, name: 'John Doe', age: 30 },
-      { id: 2, name: 'John Doe 2', age: 40 },
+      { id: 1, name: 'Elone Hoo', age: 30 },
+      { id: 2, name: 'Elone Hoo 2', age: 40 },
     ])
 
     expect(createdMethod).toHaveBeenCalledTimes(2)
@@ -55,8 +55,8 @@ describe('feature/hooks/created', () => {
 
     assertState({
       users: {
-        1: { id: 1, name: 'John Doe', age: 30 },
-        2: { id: 2, name: 'John Doe 2', age: 40 },
+        1: { id: 1, name: 'Elone Hoo', age: 30 },
+        2: { id: 2, name: 'Elone Hoo 2', age: 40 },
       },
     })
   })

@@ -36,11 +36,11 @@ describe('feature/relations/morph_to_save_uid', () => {
       url: '/profile.jpg',
       imageableId: 1,
       imageableType: 'users',
-      imageable: { id: 1, name: 'John Doe' },
+      imageable: { id: 1, name: 'Elone Hoo' },
     })
 
     assertState({
-      users: { 1: { id: 1, name: 'John Doe' } },
+      users: { 1: { id: 1, name: 'Elone Hoo' } },
       images: {
         uid1: {
           id: 'uid1',
@@ -78,11 +78,11 @@ describe('feature/relations/morph_to_save_uid', () => {
     imagesRepo.save({
       url: '/profile.jpg',
       imageableType: 'users',
-      imageable: { name: 'John Doe' },
+      imageable: { name: 'Elone Hoo' },
     })
 
     assertState({
-      users: { uid2: { id: 'uid2', name: 'John Doe' } },
+      users: { uid2: { id: 'uid2', name: 'Elone Hoo' } },
       images: {
         uid1: {
           id: 'uid1',

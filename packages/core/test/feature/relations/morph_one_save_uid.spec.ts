@@ -34,7 +34,7 @@ describe('feature/relations/morph_one_save_uid', () => {
     const usersRepo = useRepo(User)
 
     usersRepo.save({
-      name: 'John Doe',
+      name: 'Elone Hoo',
       image: {
         id: 1,
         url: '/profile.jpg',
@@ -44,7 +44,7 @@ describe('feature/relations/morph_one_save_uid', () => {
 
     assertState({
       users: {
-        uid1: { id: 'uid1', name: 'John Doe' },
+        uid1: { id: 'uid1', name: 'Elone Hoo' },
       },
       images: {
         1: {
@@ -82,7 +82,7 @@ describe('feature/relations/morph_one_save_uid', () => {
     const usersRepo = useRepo(User)
 
     usersRepo.save({
-      name: 'John Doe',
+      name: 'Elone Hoo',
       image: {
         url: '/profile.jpg',
       },
@@ -90,7 +90,7 @@ describe('feature/relations/morph_one_save_uid', () => {
 
     assertState({
       users: {
-        uid1: { id: 'uid1', name: 'John Doe' },
+        uid1: { id: 'uid1', name: 'Elone Hoo' },
       },
       images: {
         uid2: {
@@ -128,7 +128,7 @@ describe('feature/relations/morph_one_save_uid', () => {
     const usersRepo = useRepo(User)
 
     usersRepo.save({
-      name: 'John Doe',
+      name: 'Elone Hoo',
       image: {
         url: '/profile.jpg',
       },
@@ -136,7 +136,7 @@ describe('feature/relations/morph_one_save_uid', () => {
 
     assertState({
       users: {
-        uid1: { id: 'uid1', name: 'John Doe' },
+        uid1: { id: 'uid1', name: 'Elone Hoo' },
       },
       images: {
         '["uid1","users"]': {

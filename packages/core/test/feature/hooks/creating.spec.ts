@@ -45,8 +45,8 @@ describe('feature/hooks/creating', () => {
     const savingMethod = vi.spyOn(User, 'saving')
 
     useRepo(User).save([
-      { id: 1, name: 'John Doe', age: 30 },
-      { id: 2, name: 'John Doe 2', age: 40 },
+      { id: 1, name: 'Elone Hoo', age: 30 },
+      { id: 2, name: 'Elone Hoo 2', age: 40 },
     ])
 
     expect(creatingMethod).toHaveBeenCalledTimes(2)
@@ -77,7 +77,7 @@ describe('feature/hooks/creating', () => {
 
     const creatingMethod = vi.spyOn(User, 'creating')
 
-    useRepo(User).save({ id: 1, name: 'John Doe', age: 30 })
+    useRepo(User).save({ id: 1, name: 'Elone Hoo', age: 30 })
 
     expect(creatingMethod).toHaveBeenCalledOnce()
 

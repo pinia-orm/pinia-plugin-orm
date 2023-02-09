@@ -34,7 +34,7 @@ describe('feature/relations/has_many_retrieve_composite', () => {
       { id: 1, userSecondId: 1, userId: 1, title: 'Title 01' },
       { id: 2, userSecondId: 1, userId: 1, title: 'Title 02' },
     ])
-    usersRepo.save({ id: 1, secondId: 1, name: 'John Doe' })
+    usersRepo.save({ id: 1, secondId: 1, name: 'Elone Hoo' })
 
     const user = usersRepo.with('posts').first()!
 
@@ -43,7 +43,7 @@ describe('feature/relations/has_many_retrieve_composite', () => {
     assertModel(user, {
       id: 1,
       secondId: 1,
-      name: 'John Doe',
+      name: 'Elone Hoo',
       posts: [
         { id: 1, userId: 1, userSecondId: 1, title: 'Title 01' },
         { id: 2, userId: 1, userSecondId: 1, title: 'Title 02' },
@@ -54,7 +54,7 @@ describe('feature/relations/has_many_retrieve_composite', () => {
   it('can eager load missing relation as empty array', () => {
     const usersRepo = useRepo(User)
 
-    usersRepo.save({ id: 1, secondId: 1, name: 'John Doe' })
+    usersRepo.save({ id: 1, secondId: 1, name: 'Elone Hoo' })
 
     const user = usersRepo.with('posts').first()!
 
@@ -62,7 +62,7 @@ describe('feature/relations/has_many_retrieve_composite', () => {
     assertModel(user, {
       id: 1,
       secondId: 1,
-      name: 'John Doe',
+      name: 'Elone Hoo',
       posts: [],
     })
   })
@@ -75,7 +75,7 @@ describe('feature/relations/has_many_retrieve_composite', () => {
       { id: 1, userSecondId: 1, userId: 1, title: 'Title 01' },
       { id: 2, userSecondId: 1, userId: 1, title: 'Title 02' },
     ])
-    usersRepo.save({ id: 1, secondId: 1, name: 'John Doe' })
+    usersRepo.save({ id: 1, secondId: 1, name: 'Elone Hoo' })
 
     const schema = {
       id: 1,

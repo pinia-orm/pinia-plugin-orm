@@ -34,7 +34,7 @@ describe('feature/relations/has_one_save_custom_key', () => {
 
     usersRepo.save({
       userId: 1,
-      name: 'John Doe',
+      name: 'Elone Hoo',
       phone: {
         id: 1,
         number: '123-4567-8912',
@@ -43,7 +43,7 @@ describe('feature/relations/has_one_save_custom_key', () => {
 
     assertState({
       users: {
-        1: { userId: 1, name: 'John Doe' },
+        1: { userId: 1, name: 'Elone Hoo' },
       },
       phones: {
         1: { id: 1, userId: 1, number: '123-4567-8912' },
@@ -76,7 +76,7 @@ describe('feature/relations/has_one_save_custom_key', () => {
     usersRepo.save({
       id: 1,
       userId: 2,
-      name: 'John Doe',
+      name: 'Elone Hoo',
       phone: {
         id: 1,
         number: '123-4567-8912',
@@ -85,7 +85,7 @@ describe('feature/relations/has_one_save_custom_key', () => {
 
     assertState({
       users: {
-        1: { id: 1, userId: 2, name: 'John Doe' },
+        1: { id: 1, userId: 2, name: 'Elone Hoo' },
       },
       phones: {
         1: { id: 1, userId: 2, number: '123-4567-8912' },

@@ -103,7 +103,7 @@ export class Model {
   /**
    * Behaviour for relational fields on delete.
    */
-  static fieldsOnDelete:any = {}
+  static fieldsOnDelete: any = {}
 
   /**
    * Original model data.
@@ -137,7 +137,7 @@ export class Model {
   /**
    * The casts for the model.
    */
-  protected static fieldCasts:any = {}
+  protected static fieldCasts: any = {}
 
   /**
    * The array of booted models.

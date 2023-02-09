@@ -71,7 +71,7 @@ export function orderBy<T>(
 ): T[] {
   let index = -1
 
-  const result = collection.map<SortableArray<T>>((value:any) => {
+  const result = collection.map<SortableArray<T>>((value: any) => {
     const criteria = iteratees.map((iteratee) => {
       return typeof iteratee === 'function' ? iteratee(value) : value[iteratee]
     })
@@ -144,12 +144,12 @@ function compareAscending(value: any, other: any, flags: SortFlags): number {
   if (value !== other) {
     const valIsDefined = value !== undefined
     const valIsNull = value === null
+    /* eslint-disable no-self-compare */
     const valIsReflexive = value === value
-
     const othIsDefined = other !== undefined
     const othIsNull = other === null
 
-    if (typeof value !== 'number' || typeof other !== 'number') {
+    if ((typeof value !== 'number') || (typeof other !== 'number')) {
       value = String(value)
       other = String(other)
 
@@ -181,7 +181,7 @@ export function groupBy<T>(
   collection: T[],
   iteratee: (record: T) => string,
 ): { [key: string]: T[] } {
-  return collection.reduce((records:any, record:any) => {
+  return collection.reduce((records: any, record: any) => {
     const key = iteratee(record)
 
     if (records[key] === undefined)
@@ -246,6 +246,7 @@ export function generateKey(key: string, params?: any): string {
 export function getValue(obj: any, keys: string | string[]): any {
   keys = (typeof keys === 'string') ? keys.split('.') : keys
   const key = keys.shift() as string
+  /* eslint-disable no-prototype-builtins */
   if (obj && obj.hasOwnProperty(key) && keys.length === 0)
     return obj[key]
   else if (!obj || !obj.hasOwnProperty(key))

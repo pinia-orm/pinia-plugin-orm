@@ -10,7 +10,7 @@ describe('feature/repository/new', () => {
       static entity = 'users'
 
       @Uid() id!: string
-      @Str('John Doe') name!: string
+      @Str('Elone Hoo') name!: string
       @Num(21) age!: number
       @Bool(true) active!: boolean
     }
@@ -23,7 +23,7 @@ describe('feature/repository/new', () => {
 
     assertState({
       users: {
-        uid1: { id: 'uid1', name: 'John Doe', age: 21, active: true },
+        uid1: { id: 'uid1', name: 'Elone Hoo', age: 21, active: true },
       },
     })
   })
@@ -33,7 +33,7 @@ describe('feature/repository/new', () => {
       static entity = 'users'
 
       @Attr() id!: any
-      @Str('John Doe') name!: string
+      @Str('Elone Hoo') name!: string
     }
 
     const userRepo = useRepo(User)

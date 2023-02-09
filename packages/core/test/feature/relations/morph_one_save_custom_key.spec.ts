@@ -35,7 +35,7 @@ describe('feature/relations/morph_one_save_custom_key', () => {
 
     usersRepo.save({
       userId: 1,
-      name: 'John Doe',
+      name: 'Elone Hoo',
       image: {
         id: 1,
         url: '/profile.jpg',
@@ -45,7 +45,7 @@ describe('feature/relations/morph_one_save_custom_key', () => {
 
     assertState({
       users: {
-        1: { userId: 1, name: 'John Doe' },
+        1: { userId: 1, name: 'Elone Hoo' },
       },
       images: {
         1: {
@@ -84,7 +84,7 @@ describe('feature/relations/morph_one_save_custom_key', () => {
     usersRepo.save({
       id: 1,
       userId: 2,
-      name: 'John Doe',
+      name: 'Elone Hoo',
       image: {
         id: 1,
         url: '/profile.jpg',
@@ -94,7 +94,7 @@ describe('feature/relations/morph_one_save_custom_key', () => {
 
     assertState({
       users: {
-        1: { id: 1, userId: 2, name: 'John Doe' },
+        1: { id: 1, userId: 2, name: 'Elone Hoo' },
       },
       images: {
         1: {

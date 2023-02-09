@@ -104,7 +104,7 @@ describe('feature/repository/delete_with_relations', () => {
 
     usersRepo.save([{
       id: 1,
-      name: 'John Doe',
+      name: 'Elone Hoo',
       roles: [{ id: 1, pivot: { level: 1 } }, { id: 2 }, { id: 4 }],
       posts: [
         {
@@ -152,7 +152,7 @@ describe('feature/repository/delete_with_relations', () => {
 
     assertState({
       users: {
-        1: { id: 1, name: 'John Doe' },
+        1: { id: 1, name: 'Elone Hoo' },
       },
       roles: {
         1: { id: 1, posts: '' },

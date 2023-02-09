@@ -26,7 +26,7 @@ describe('feature/relations/belongs_to_retrieve', () => {
     const userRepo = useRepo(User)
     const postsRepo = useRepo(Post)
 
-    userRepo.save({ id: 1, name: 'John Doe' })
+    userRepo.save({ id: 1, name: 'Elone Hoo' })
     postsRepo.save({ id: 1, userId: 1, title: 'Title 01' })
 
     const post = postsRepo.with('author').first()
@@ -37,7 +37,7 @@ describe('feature/relations/belongs_to_retrieve', () => {
       id: 1,
       userId: 1,
       title: 'Title 01',
-      author: { id: 1, name: 'John Doe' },
+      author: { id: 1, name: 'Elone Hoo' },
     })
   })
 
@@ -61,7 +61,7 @@ describe('feature/relations/belongs_to_retrieve', () => {
     const userRepo = useRepo(User)
     const postsRepo = useRepo(Post)
 
-    userRepo.save({ id: 1, name: 'John Doe' })
+    userRepo.save({ id: 1, name: 'Elone Hoo' })
     postsRepo.save({ id: 1, userId: null, title: 'Title 01' })
 
     const post = postsRepo.with('author').first()

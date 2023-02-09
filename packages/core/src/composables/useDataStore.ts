@@ -18,5 +18,5 @@ export interface DataStoreState {
   [s: string]: any
 }
 
-//@ts-ignore
+// @ts-expect-error don't composables
 export type DataStore = ReturnType<typeof import('@/composables')['useDataStore']>

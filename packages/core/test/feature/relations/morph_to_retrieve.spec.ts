@@ -31,7 +31,7 @@ describe('feature/relations/morph_to_retrieve', () => {
   }
 
   const MORPH_TO_ENTITIES = {
-    users: { id: 1, name: 'John Doe' },
+    users: { id: 1, name: 'Elone Hoo' },
     posts: [
       { id: 1, title: 'Hello, world!' },
       { id: 2, title: 'Hello, world! Again!' },
@@ -78,7 +78,7 @@ describe('feature/relations/morph_to_retrieve', () => {
       url: '/profile.jpg',
       imageableId: 1,
       imageableType: 'users',
-      imageable: { id: 1, name: 'John Doe' },
+      imageable: { id: 1, name: 'Elone Hoo' },
     })
 
     // Assert Post Image
@@ -152,7 +152,7 @@ describe('feature/relations/morph_to_retrieve', () => {
     const usersRepo = useRepo(User)
     const imagesRepo = useRepo(Image)
 
-    usersRepo.save({ id: 1, name: 'John Doe' })
+    usersRepo.save({ id: 1, name: 'Elone Hoo' })
     imagesRepo.save({
       id: 1,
       url: '/profile.jpg',

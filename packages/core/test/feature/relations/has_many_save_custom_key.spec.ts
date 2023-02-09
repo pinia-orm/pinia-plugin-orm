@@ -34,7 +34,7 @@ describe('feature/relations/has_many_save_custom_key', () => {
 
     usersRepo.save({
       userId: 1,
-      name: 'John Doe',
+      name: 'Elone Hoo',
       posts: [
         { id: 1, title: 'Title 01' },
         { id: 2, title: 'Title 02' },
@@ -43,7 +43,7 @@ describe('feature/relations/has_many_save_custom_key', () => {
 
     assertState({
       users: {
-        1: { userId: 1, name: 'John Doe' },
+        1: { userId: 1, name: 'Elone Hoo' },
       },
       posts: {
         1: { id: 1, userId: 1, title: 'Title 01' },
@@ -77,7 +77,7 @@ describe('feature/relations/has_many_save_custom_key', () => {
     usersRepo.save({
       id: 1,
       userId: 2,
-      name: 'John Doe',
+      name: 'Elone Hoo',
       posts: [
         { id: 1, title: 'Title 01' },
         { id: 2, title: 'Title 02' },
@@ -86,7 +86,7 @@ describe('feature/relations/has_many_save_custom_key', () => {
 
     assertState({
       users: {
-        1: { id: 1, userId: 2, name: 'John Doe' },
+        1: { id: 1, userId: 2, name: 'Elone Hoo' },
       },
       posts: {
         1: { id: 1, userId: 2, title: 'Title 01' },
@@ -123,7 +123,7 @@ describe('feature/relations/has_many_save_custom_key', () => {
       usersRepo.save({
         id: 1,
         secondId: 2,
-        name: 'John Doe',
+        name: 'Elone Hoo',
         posts: [
           { id: 1, title: 'Title 01' },
           { id: 2, title: 'Title 02' },

@@ -17,11 +17,11 @@ describe('feature/uid/fresh_uid', () => {
 
     const userRepo = useRepo(User)
 
-    userRepo.fresh([{ name: 'John Doe' }, { name: 'Jane Doe' }])
+    userRepo.fresh([{ name: 'Elone Hoo' }, { name: 'Jane Doe' }])
 
     assertState({
       users: {
-        uid1: { id: 'uid1', name: 'John Doe' },
+        uid1: { id: 'uid1', name: 'Elone Hoo' },
         uid2: { id: 'uid2', name: 'Jane Doe' },
       },
     })

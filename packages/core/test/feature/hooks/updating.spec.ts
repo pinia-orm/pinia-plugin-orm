@@ -25,7 +25,7 @@ describe('feature/hooks/updating', () => {
 
     fillState({
       users: {
-        1: { id: 1, name: 'John Doe', age: 30 },
+        1: { id: 1, name: 'Elone Hoo', age: 30 },
       },
     })
 
@@ -35,7 +35,7 @@ describe('feature/hooks/updating', () => {
 
     assertState({
       users: {
-        1: { id: 1, name: 'John Doe', age: 30 },
+        1: { id: 1, name: 'Elone Hoo', age: 30 },
       },
     })
   })
@@ -59,14 +59,14 @@ describe('feature/hooks/updating', () => {
 
     fillState({
       users: {
-        1: { id: 1, name: 'John Doe', age: 10 },
-        2: { id: 2, name: 'John Doe', age: 10 },
+        1: { id: 1, name: 'Elone Hoo', age: 10 },
+        2: { id: 2, name: 'Elone Hoo', age: 10 },
       },
     })
 
     useRepo(User).save([
-      { id: 1, name: 'John Doe', age: 30 },
-      { id: 2, name: 'John Doe 2', age: 40 },
+      { id: 1, name: 'Elone Hoo', age: 30 },
+      { id: 2, name: 'Elone Hoo 2', age: 40 },
     ])
 
     useRepo(User).where('id', 1).update({ age: 100 })
@@ -105,7 +105,7 @@ describe('feature/hooks/updating', () => {
       },
     })
 
-    useRepo(User).save({ id: 1, name: 'John Doe', age: 30 })
+    useRepo(User).save({ id: 1, name: 'Elone Hoo', age: 30 })
 
     expect(updatingMethod).toHaveBeenCalledOnce()
 

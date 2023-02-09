@@ -34,7 +34,7 @@ describe('feature/relations/has_many_through_retrieve', () => {
 
     fillState({
       users: {
-        1: { id: 1, name: 'John Doe', countryId: 1 },
+        1: { id: 1, name: 'Elone Hoo', countryId: 1 },
         2: { id: 2, name: 'Jane Doe', countryId: 1 },
         3: { id: 3, name: 'Johnny Doe', countryId: 2 },
       },
@@ -87,7 +87,7 @@ describe('feature/relations/has_many_through_retrieve', () => {
 
     fillState({
       users: {
-        1: { id: 1, name: 'John Doe', countryId: 1 },
+        1: { id: 1, name: 'Elone Hoo', countryId: 1 },
         2: { id: 2, name: 'Jane Doe', countryId: 1 },
         3: { id: 3, name: 'Johnny Doe', countryId: 2 },
       },
