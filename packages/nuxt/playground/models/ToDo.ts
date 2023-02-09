@@ -3,11 +3,11 @@ import { Model } from 'pinia-plugin-orm'
 export default class Todo extends Model {
   static entity = 'Todo'
 
-  static fields () {
+  static fields() {
     return {
       id: this.uid(),
       text: this.string(''),
-      name: this.string('')
+      name: this.string(''),
     }
   }
 

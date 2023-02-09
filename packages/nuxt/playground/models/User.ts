@@ -4,13 +4,13 @@ import ToDo from './ToDo'
 export default class User extends Model {
   static entity = 'users'
 
-  static fields () {
+  static fields() {
     return {
       id: this.uid(),
       name: this.string(''),
       first_name: this.string('').nullable(),
       last_name: this.string('').nullable(),
-      todos: this.hasMany(ToDo, 'user_id')
+      todos: this.hasMany(ToDo, 'user_id'),
     }
   }
 

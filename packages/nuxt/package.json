@@ -3,10 +3,17 @@
   "type": "module",
   "version": "0.0.0",
   "description": "Nuxt module for pinia-plugin-orm",
+  "author": "Elone Hoo <hi@elonehoo.me>",
+  "license": "MIT",
+  "keywords": [
+    "pinia-plugin",
+    "orm",
+    "nuxt"
+  ],
   "exports": {
     ".": {
-      "import": "./dist/module.mjs",
-      "require": "./dist/module.cjs"
+      "require": "./dist/module.cjs",
+      "import": "./dist/module.mjs"
     }
   },
   "main": "./dist/module.cjs",
@@ -20,16 +27,9 @@
     "dev:build": "nuxi build playground",
     "dev:prepare": "nuxt-module-build --stub && nuxi prepare playground"
   },
-  "keywords": [
-    "pinia-plugin",
-    "orm",
-    "nuxt"
-  ],
-  "author": "Elone Hoo <hi@elonehoo.me>",
-  "license": "MIT",
   "peerDependencies": {
-    "pinia/nuxt":">=0.4.6",
-    "pinia-plugin-orm":">=o.o.1"
+    "pinia-plugin-orm": ">=o.o.1",
+    "pinia/nuxt": ">=0.4.6"
   },
   "dependencies": {
     "@nuxt/kit": "^3.2.0"
