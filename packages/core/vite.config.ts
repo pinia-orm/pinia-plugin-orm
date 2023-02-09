@@ -11,7 +11,7 @@ export default defineConfig({
   test: {
     globals: true,
     environment: 'happy-dom',
-    setupFiles: ['./tests/setup.ts'],
+    setupFiles: ['./test/setup.ts'],
     // silent: true,
     coverage: {
       reporter: ['lcov', 'text'],
