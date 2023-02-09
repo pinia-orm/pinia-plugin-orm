@@ -1,11 +1,14 @@
 {
   "name": "pinia-plugin-orm",
-  "version": "0.0.0",
   "type": "module",
+  "version": "0.0.0",
   "description": "",
-  "types": "dist/index.d.ts",
-  "main": "./dist/index.js",
-  "module": "./dist/index.js",
+  "author": "Elone Hoo <hi@elonehoo.me>",
+  "license": "MIT",
+  "keywords": [
+    "pinia-plugin",
+    "orm"
+  ],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -24,15 +27,12 @@
       "import": "./dist/casts.js"
     }
   },
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "dist/index.d.ts",
   "files": [
     "dist"
   ],
   "scripts": {
-  },
-  "keywords": [
-    "pinia-plugin",
-    "orm"
-  ],
-  "author": "Elone Hoo <hi@elonehoo.me>",
-  "license": "MIT"
+  }
 }

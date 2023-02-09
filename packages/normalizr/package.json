@@ -1,15 +1,15 @@
 {
   "name": "@pinia-plugin-orm/normalizr",
-  "version": "0.0.0",
   "type": "module",
+  "version": "0.0.0",
   "description": "Normalizes JSON according to schema for Redux and Flux applications",
-  "files": [
-    "dist/",
-    "index.d.ts"
+  "author": "Elone Hoo <hi@elonehoo.me>",
+  "license": "MIT",
+  "keywords": [
+    "pinia-plugin",
+    "orm",
+    "normalizr"
   ],
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.js",
-  "types": "index.d.ts",
   "exports": {
     ".": {
       "require": "./dist/index.cjs",
@@ -17,15 +17,15 @@
     },
     "./*": "./*"
   },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "index.d.ts",
+  "files": [
+    "dist/",
+    "index.d.ts"
+  ],
   "scripts": {
     "dev": "tsup --watch src",
-    "build":"tsup"
-  },
-  "keywords": [
-    "pinia-plugin",
-    "orm",
-    "normalizr"
-  ],
-  "author": "Elone Hoo <hi@elonehoo.me>",
-  "license": "MIT"
+    "build": "tsup"
+  }
 }

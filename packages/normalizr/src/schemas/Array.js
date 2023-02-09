@@ -1,9 +1,8 @@
 import PolymorphicSchema from './Polymorphic'
 
 const validateSchema = (definition) => {
-  if (Array.isArray(definition) && definition.length > 1) {
+  if (Array.isArray(definition) && definition.length > 1)
     throw new Error(`Expected schema definition to be a single schema, but found ${definition.length}.`)
-  }
 
   return definition[0]
 }
@@ -17,7 +16,7 @@ export const normalize = (schema, input, parent, key, visit, addEntity, visitedE
 }
 
 export default class ArraySchema extends PolymorphicSchema {
-  normalize (input, parent, key, visit, addEntity, visitedEntities) {
+  normalize(input, parent, key, visit, addEntity, visitedEntities) {
     return getValues(input)
       .map(value => this.normalizeValue(value, parent, key, visit, addEntity, visitedEntities))
       .filter(value => value !== undefined && value !== null)
