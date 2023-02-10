@@ -24,7 +24,8 @@
     "test:vue3": "pnpm -C packages/core run test:3",
     "test:vue2": "pnpm -C packages/core run test:2",
     "test:coverage": "pnpm -C packages/core run coverage",
-    "example:vue3":"pnpm -C examples/vue run dev",
+    "example:vue3": "pnpm -C examples/vue run dev",
+    "example:vue2": "pnpm -C examples/vue2 run dev",
     "release": "bumpp package.json packages/*/package.json --commit --push --tag && pnpm -r publish --access public"
   },
   "devDependencies": {

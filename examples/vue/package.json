@@ -1,7 +1,7 @@
 {
   "name": "@pinia-plugin-orm/examples-vue",
-  "private": true,
   "type": "module",
+  "private": true,
   "scripts": {
     "dev": "vite",
     "build": "vite build",

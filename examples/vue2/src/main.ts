@@ -1,7 +1,7 @@
 import Vue from 'vue'
-import App from './App.vue'
-import { createPinia,PiniaVuePlugin } from 'pinia'
+import { PiniaVuePlugin, createPinia } from 'pinia'
 import { createORM } from 'pinia-plugin-orm'
+import App from './App.vue'
 import '@unocss/reset/tailwind.css'
 import 'uno.css'
 
@@ -12,5 +12,3 @@ new Vue({
   pinia,
   render: h => h(App),
 }).$mount('#app')
-
-
