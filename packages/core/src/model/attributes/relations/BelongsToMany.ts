@@ -105,6 +105,7 @@ export class BelongsToMany extends Relation {
     models.forEach((parentModel) => {
       const relationResults: Model[] = []
       relatedModels.forEach((relatedModel) => {
+        // @ts-expect-error any error
         const pivot = pivotModels[`[${parentModel[this.parentKey]},${relatedModel[this.relatedKey]}]`]?.[0] ?? null
 
         const relatedModelCopy = relatedModel.$newInstance(relatedModel.$toJson())
