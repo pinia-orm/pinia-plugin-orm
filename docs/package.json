@@ -1,0 +1,23 @@
+{
+  "name": "@pinia-plugin-orm/docs",
+  "type": "module",
+  "private": "true",
+  "scripts": {
+    "dev": "vitepress dev",
+    "build": "vitepress build",
+    "serve": "vitepress serve"
+  },
+  "author": "Elone Hoo <hi@elonehoo.me>",
+  "license": "MIT",
+  "dependencies": {
+    "@vueuse/core": "^9.12.0",
+    "vitepress": "1.0.0-alpha.45",
+    "vue": "^3.2.47"
+  },
+  "devDependencies": {
+    "@unocss/reset": "^0.49.4",
+    "@vitejs/plugin-vue": "^4.0.0",
+    "unocss": "^0.49.4",
+    "vite": "^4.1.1"
+  }
+}
