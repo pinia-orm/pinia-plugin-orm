@@ -28,6 +28,27 @@ importers:
       vite: 4.1.1_@types+node@18.11.19
       vitest: 0.28.4_@vitest+ui@0.28.4
 
+  examples/nuxt:
+    specifiers:
+      '@pinia-plugin-orm/nuxt': workspace:*
+      '@pinia/nuxt': ^0.4.6
+      nanoid: ^4.0.1
+      nuxt: ^3.2.0
+      pinia: ^2.0.30
+      pinia-plugin-orm: workspace:*
+      uuid: ^9.0.0
+      vue: ^3.2.47
+    dependencies:
+      '@pinia-plugin-orm/nuxt': link:../../packages/nuxt
+      pinia-plugin-orm: link:../../packages/core
+    devDependencies:
+      '@pinia/nuxt': 0.4.6_vue@3.2.47
+      nanoid: 4.0.1
+      nuxt: 3.2.0
+      pinia: 2.0.30_vue@3.2.47
+      uuid: 9.0.0
+      vue: 3.2.47
+
   examples/vue:
     specifiers:
       '@iconify-json/carbon': ^1.1.14

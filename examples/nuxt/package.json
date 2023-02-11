@@ -1,0 +1,23 @@
+{
+  "name": "@pinia-plugin-orm/examples-nuxt",
+  "type": "module",
+  "private": "true",
+  "author": "Elone Hoo <hi@elonehoo.me>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nuxi dev",
+    "build": "nuxi build"
+  },
+  "dependencies": {
+    "@pinia-plugin-orm/nuxt": "workspace:*",
+    "pinia-plugin-orm": "workspace:*"
+  },
+  "devDependencies": {
+    "@pinia/nuxt": "^0.4.6",
+    "nanoid": "^4.0.1",
+    "nuxt": "^3.2.0",
+    "pinia": "^2.0.30",
+    "uuid": "^9.0.0",
+    "vue": "^3.2.47"
+  }
+}

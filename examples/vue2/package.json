@@ -1,5 +1,5 @@
 {
-  "name": "@pinia-plugin-orm/examples-vue",
+  "name": "@pinia-plugin-orm/examples-vue2",
   "type": "module",
   "private": true,
   "scripts": {
