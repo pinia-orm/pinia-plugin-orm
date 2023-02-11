@@ -3,7 +3,7 @@ import { useRepo } from 'pinia-plugin-orm'
 import User from './models/User'
 
 const userRepo = useRepo(User)
-userRepo.save([
+const user = userRepo.save([
   {
     id: 1,
     email: 'test@test.de',
@@ -28,4 +28,5 @@ onBeforeMount(() => {
 
 <template>
   <div>Nuxt module playground!</div>
+  <div>{{ user }}</div>
 </template>
