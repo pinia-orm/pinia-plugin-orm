@@ -74,6 +74,14 @@ export default defineConfig({
               text: 'Getting Started',
               link: '/guide/',
             },
+            {
+              text: 'Usage',
+              link: '/guide/usage',
+            },
+            {
+              text: 'Typescript',
+              link: '/guide/typescript',
+            },
           ],
         },
       ],
