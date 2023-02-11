@@ -84,6 +84,15 @@ export default defineConfig({
             },
           ],
         },
+        {
+          text: 'Model',
+          items: [
+            {
+              text: 'Model Reference',
+              link: '/model/',
+            },
+          ],
+        },
       ],
     },
   },

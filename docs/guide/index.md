@@ -14,15 +14,15 @@ Note that in this documentation, we borrow many examples and texts from Vuex ORM
 ::: code-group
 
 ```bash [npm]
-npm i -D pinia-orm pinia
+npm i -D pinia-plugin-orm pinia
 ```
 
 ```bash [yarn]
-yarn add -D pinia-orm pinia
+yarn add -D pinia-plugin-orm pinia
 ```
 
 ```bash [pnpm]
-pnpm add -D pinia-orm pinia
+pnpm add -D pinia-plugin-orm pinia
 ```
 
 :::

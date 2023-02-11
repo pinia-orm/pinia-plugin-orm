@@ -1,0 +1,483 @@
+---
+title: Model Reference | Model
+outline: deep
+---
+
+# Model Reference
+
+::: tip NOTE
+A model defines an entity schema that will be handled by Pinia ORM. You can visualize a model as a table definition in a database. You can use models wherever your application needs to manage a collection of entities, whether they actually correspond to a database or not. Models encapsulate most of the functionality that you'll need to work with your data.
+:::
+
+## Defining A Model
+
+You can create a model by defining a new class that extends the Pinia ORM base Model. All models require two static properties, an `entity` and `fields` property.
+
+The following example sets up a new model that can be used to manage users:
+
+```ts
+import { Model } from 'pinia-plugin-orm'
+
+class User extends Model {
+  static entity = 'users'
+
+  static fields () {
+    return {
+      id: this.attr(null),
+      name: this.attr('Elone Hoo')
+    }
+  }
+}
+```
+
+### Entity
+
+`entity` is a property that identifies a model, similar to the name of a database table. Each model's entity name must be unique!
+
+All models will create a Pinia module by their entity property and are found in `state.entities` . In our example above, we will have created `state.entities.users`. The default namespace `entities` can be configured during installation.
+
+### Fields
+
+`fields` is a required property method that returns an object of field attributes to the model's schema. It maps data to their respective fields. It should return an object of key-value pairs consisting of the field name , and attribute definitions.
+
+## Field Attributes
+
+Pinia ORM supports the most common Javascript datatypes including primitives, object literals, and arrays. These datatypes are defined using various field attributes. The most common type of attribute you'll come across is the generic attribute type.
+
+Attributes take a single argument – the fields **default value**. This default value is used in the event the field is missing when inserting data.
+
+:::tip Attribute Decorators
+Typescript users can define attributes using decorators. To learn more about these, please take a look at the Decorators section.
+:::
+
+### Generic Type
+
+Generic attributes can be defined using `this.attr(...)`. This type of attribute, unlike other attributes, will take any datatype as its default value, including `String`, `Number`, `Boolean`, `Object` and `Array`.
+
+The following example defines `id` and `name` fields on a user model using the generic attribute type:
+
+```ts
+class User extends Model {
+  static entity = 'users'
+
+  static fields () {
+    return {
+      id: this.attr(null),
+      name: this.attr('Elone Hoo'),
+      address: this.attr(() => 'street')
+    }
+  }
+}
+```
+
+### `String` Type
+
+:::warning
+If your value is not of the given type `string` you will get a console warning
+:::
+
+String attributes can be defined using `this.string(...)` . The default value can be any string, including an empty string or a closure.
+
+The following example defines the `name` field on a user model using the string attribute:
+
+```ts
+class User extends Model {
+  static entity = 'users'
+
+  static fields () {
+    return {
+      ...
+      name: this.string('')
+    }
+  }
+}
+```
+
+This attribute will ensure a given value is cast as a string. For example, if name receives a value of `false` or `null`, it will become `'false'` or `'null'`.
+
+This attribute has null as a default value. However, if you want to get warning if a value should not be nullable you can set `notNullable()`.
+
+```ts
+{
+  ...
+  name: this.string(null).notNullable()
+}
+```
+
+### `number` Type
+
+::: warning
+If your value is not of the given type `number` you will get a console warning
+:::
+
+Number attributes can be defined using `this.number(...)` . The default value can be any integer or a closure.
+
+The following example defines the `id` field on a user model using the number attribute:
+
+```ts
+class User extends Model {
+  static entity = 'users'
+
+  static fields () {
+    return {
+      id: this.number(0)
+      ...
+    }
+  }
+}
+```
+
+This attribute will ensure a given value is cast as a number. For example, if `id` receives a value of `false`, it will become `0`, `null` will become `0`, `'123'` will become `123`, and so on.
+
+This attribute has `null` as a default value. However, if you want to get warning if a value should not be nullable you can set `notNullable()`.
+
+```ts
+{
+  ...
+  name: this.number(null).notNullable()
+}
+```
+
+### `boolean` Type
+
+:::warning
+If your value is not of the given type `boolean` you will get a console warning
+:::
+
+Boolean attributes can be defined using `this.boolean(...)`. The default value can be either `true` or `false` or a closure.
+
+The following example defines the `active` field on a user model using the boolean attribute:
+
+```ts
+class User extends Model {
+  static entity = 'users'
+
+  static fields () {
+    return {
+      ...
+      active: this.boolean(false)
+    }
+  }
+}
+```
+
+This attribute will ensure a given value is cast as a boolean. Any truthy or falsy value will be cast accordingly. For example, if active receives a value of `0` or `null`, it will become `false`. Likewise, if it receives a value of `1` or `'yes'` (non-empty string) it will become `true`.
+
+This attribute has `null` as a default value. However, if you want to get warning if a value should not be nullable you can set `notNullable()`.
+
+```ts
+{
+  ...
+  active: this.boolean(null).notNullable()
+}
+```
+
+## Special Attributes
+
+### `uid` Type
+
+UID attribute is the special attribute that works similarly to "Autoincrement" column type in RDB. When you try to save a record without the value set to the UID field, it will generate a unique ID automatically.
+
+```ts
+class User extends Model {
+  static entity = 'users'
+  static fields () {
+    return {
+      id: this.uid(),
+      name: this.string('')
+    }
+  }
+}
+```
+
+This attribute will generate a unique string value using simple version of [nanoid/non-secure](https://github.com/ai/nanoid#non-secure) package.
+
+#### nanoid
+
+Please make sure that you have `nanoid` installed:
+
+::: code-group
+
+```bash [npm]
+npm i -D nanoid
+```
+
+```bash [yarn]
+yarn add -D nanoid
+```
+
+```bash [pnpm]
+pnpm add -D nanoid
+```
+
+:::
+
+For more details look at [nanoid](https://github.com/ai/nanoid).
+
+::: code-group
+
+```ts [Standard methods]
+import { UidCast } from 'pinia-plugin-orm/dist/packages/nanoid'
+// import { UidCast } from 'pinia-plugin-orm/dist/packages/nanoid/non-secure'
+// import { UidCast } from 'pinia-plugin-orm/dist/packages/nanoid/async'
+class User extends Model {
+  static entity = 'users'
+  static fields () {
+    return {
+      id: this.attr(),
+      name: this.string('')
+    }
+  }
+  static casts () {
+    return {
+      id: UidCast
+    }
+  }
+}
+```
+
+```ts [Decorator Method]
+import { Uid } from 'pinia-plugin-orm/dist/packages/nanoid'
+// import { Uid } from 'pinia-plugin-orm/dist/packages/nanoid/non-secure'
+// import { Uid } from 'pinia-plugin-orm/dist/packages/nanoid/async'
+class User extends Model {
+  static entity = 'users'
+
+  @Uid() declare id: string
+}
+```
+
+:::
+
+#### uuid
+
+Please make sure that you have `uuid` installed:
+
+::: code-group
+
+```bash [npm]
+npm i -D uuid
+```
+
+```bash [yarn]
+yarn add -D uuid
+```
+
+```bash [pnpm]
+pnpm add -D uuid
+```
+
+:::
+
+For more details look at [uuid](https://github.com/uuidjs/uuid). Standard methods
+
+::: code-group
+
+```ts [Standard methods]
+import { UidCast } from 'pinia-plugin-orm/dist/packages/uuid/v1'
+// import { UidCast } from 'pinia-plugin-orm/dist/packages/uuid/v4'
+class User extends Model {
+  static entity = 'users'
+  static fields () {
+    return {
+      id: this.attr(),
+      name: this.string('')
+    }
+  }
+  static casts () {
+    return {
+      id: UidCast
+    }
+  }
+}
+```
+
+```ts [Decorator Method]
+import { Uid } from 'pinia-plugin-orm/dist/packages/uuid/v1'
+// import { Uid } from 'pinia-plugin-orm/dist/packages/uuid/v1'
+class User extends Model {
+  static entity = 'users'
+
+  @Uid() declare id: string
+}
+```
+
+:::
+
+```ts
+const user = useRepo(User).make()
+user.id // <- '2c5ea4c0-4067-11e9-8bad-9b1deb4d3b7d'
+```
+
+## Defining Relations
+
+You can define a relationship between different models using relation attributes such as `this.hasMany`, `this.belongsTo`, etc. To learn more about these, please take a look at [Relationships](/relationships) page.
+
+## Primary Key
+
+All models must have a primary key field. The primary key serves as an index key that Pinia ORM will use to persist entities to the store by its value.
+
+By default, Pinia ORM will look for a primary key field called `id`.
+
+```ts
+class User extends Model {
+  static entity = 'users'
+  static fields () {
+    return {
+      id: this.attr(null)
+      ...
+    }
+  }
+}
+```
+
+### Custom Primary Key
+
+The primary key can be mapped to any field that will have a unique value by defining the static primaryKey property on a model.
+
+The following example configures a user model to identify the field `myId` as the primary key:
+
+```ts
+class User extends Model {
+  static entity = 'users'
+  static primaryKey = 'myId'
+  static fields () {
+    return {
+      myId: this.attr(null)
+      ...
+    }
+  }
+}
+```
+
+### Missing Primary Key
+
+If a model is missing a primary key field definition, Pinia ORM will generate a primary key field automatically during database registration. The generated field will be configured using the `uid` attribute type and named `id` unless the static `primaryKey` property is defined on a model.
+
+The following example sets up a user model without an `id` primary key field:
+
+```ts
+class User extends Model {
+  static entity = 'users'
+  static fields () {
+    return {
+      name: this.attr('')
+    }
+  }
+}
+```
+
+Pinia ORM will recognize the model is missing an `id` field and will generate one in its absence. The model will now be configured as follows:
+
+```ts
+class User extends Model {
+  static entity = 'users'
+  static fields () {
+    return {
+      id: this.uid(), // The auto-generated primary key field.
+      name: this.attr('')
+    }
+  }
+}
+```
+
+The same principle applies to a model with a custom primary key definition. Pinia ORM will generate a primary key field using the name defined as the static `primaryKey` property.
+
+The following example sets up a user model configured with a `primaryKey` property but without a corresponding primary key field:
+
+```ts
+class User extends Model {
+  static entity = 'users'
+  static primaryKey = 'myId'
+  static fields () {
+    return {
+      name: this.attr('')
+    }
+  }
+}
+```
+
+Pinia ORM will recognize a custom `primaryKey` has been defined but is unable to locate the corresponding field definition, and will generate one in its absence. The model will now be configured as follows:
+
+```ts
+class User extends Model {
+  static entity = 'users'
+  static primaryKey = 'myId'
+  static fields () {
+    return {
+      myId: this.uid(), // The auto-generated custom primary key field.
+      name: this.attr('')
+    }
+  }
+}
+```
+
+## Hide fields
+
+### By property
+
+In Pinia ORM you have to hide fields when you retrieve data from the store. You can define for each model separate fields with `hidden` or `visible`.
+
+```ts
+class User extends Model {
+  static entity = 'users'
+  // only return fields "name" and "phone" for this model by default
+  static hidden = ['secret']
+  // or use visible
+  static visible = ['name', 'phone']
+  static fields () {
+    return {
+      id: this.uid(),
+      name: this.string(''),
+      phone: this.number(0),
+      secret: this.string('')
+    }
+  }
+}
+```
+
+### By function
+
+Once you have defined hidden fields in your model you still have the option to define fields hidden or visible at runtime. For that you can usee `makeVisible` or `makeHidden`.
+
+```ts
+import { useRepo } from 'pinia-plugin-orm'
+import User from './models/User'
+const userRepo = useRepo(User)
+// Returns User with hidden field 'secret'
+userRepo.makeVisible(['secret']).first()
+// Returns User with 'name' not returned
+userRepo.makeHidden(['name']).first()
+```
+
+### By global config
+
+You also have the option to define default hidden visible fields in you ORM setup
+
+```ts
+const app = createApp({})
+const pinia = createPinia()
+pinia.use(createORM({
+  model: {
+    visible: ['*'],
+    hidden: []
+  }
+}))
+app.use(pinia)
+setActivePinia(pinia)
+```
+
+## Meta Info
+
+In Pinia ORM you have that options that each model saves metadata. This metadata contains following properties:
+
+- createdAt
+- updatedAt
+
+If you have enabled them either through global configuration `createORM({ model: { withMeta:true } })` for all models or by the model property `static withMeta = true` for a single one, than metadata will be saved under the `_meta` prop.
+
+> This property is by default hidden!
+
+So you can either unhide by default with `createORM({ model: { hidden: [] } })` or in the model.
+
+Or you access it through `withMeta()` at runtime
