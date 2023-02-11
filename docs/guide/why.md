@@ -1,3 +1,8 @@
+---
+title: Why | Guide
+outline: deep
+---
+
 # Why Plugin
 
 ::: tip NOTE
@@ -10,7 +15,7 @@ Many applications deal with data that is nested or relational in nature. For exa
 
 To handle such data nicely, one approach splits the nested data into separate modules and decouples them from each other. Simply put, it treats a portion of your store like a normalized database with a flattened data structure.
 
-[This excellent article](https://redux.js.org/usage/structuring-reducers/normalizing-state-shape/) describes the difficulty of nested data. It also explains how to design a normalized state, and Vuex ORM is heavily inspired by it.
+[This excellent article](https://redux.js.org/usage/structuring-reducers/normalizing-state-shape/) describes the difficulty of nested data. It also explains how to design a normalized state, and Pinia ORM is heavily inspired by it.
 
 Note that in this documentation, we borrow many examples and texts from the article. We would like to credit [Redux](https://redux.js.org/usage/structuring-reducers/normalizing-state-shape) and the author of the section [Mark Erikson](https://twitter.com/acemarke) for the beautiful article.
 
@@ -71,3 +76,172 @@ Notice that the structure is a bit complex, and contains duplicate author data f
 To deal with these challenges, a recommended approach is to treat a portion of your store as if it were a database, and keep that data in a normalized form.
 
 ## How Pinia ORM Handles Data
+
+Pinia ORM manages both creating (normalizing) and retrieving data through a fluent, intuitive API.
+
+Let's use the example data above and store a blog post. Firstly, we will create *models* for our posts, comments, and users:
+
+```ts
+import { Model } from 'pinia-plugin-orm'
+
+class Post extends Model {
+  static entity = 'todos'
+
+  static fields() {
+    return {
+      id: this.uid(),
+      title: this.string(''),
+      userId: this.attr(null),
+    }
+  }
+}
+
+class Comment extends Model {
+  static entity = 'comments'
+
+  static fields () {
+    return {
+      id: this.attr(null),
+      userId: this.attr(null),
+      postId: this.attr(null),
+      comment: this.string(''),
+      author: this.belongsTo(User, 'userId')
+    }
+  }
+}
+
+class User extends Model {
+  static entity = 'users'
+
+  static fields () {
+    return {
+      id: this.attr(null),
+      name: this.string('')
+    }
+  }
+}
+```
+
+With these models, we can retrieve a repository to interact with the data. We can insert the data into the store using the repository's insert method:
+
+```ts
+import { useRepo } from 'pinia-plugin-orm'
+import User from './store/User'
+
+const userRepo = useRepo(User)
+userRepo.save(post)
+```
+
+Pinia ORM automatically normalizes and saves the posts inside the store with the following structure.
+
+```ts
+{
+  entities: {
+    posts: {
+      data: {
+        1: { id: 1, userId: 1, body: '.....' },
+        2: { id: 2, userId: 2, body: '.....' }
+      }
+    },
+
+    comments: {
+      data: {
+        1: { id: 1, userId: 2, postId: 1, comment: '.....' },
+        2: { id: 2, userId: 2, postId: 1, comment: '.....' },
+        3: { id: 3, userId: 3, postId: 2, comment: '.....' },
+        4: { id: 4, userId: 1, postId: 2, comment: '.....' },
+        5: { id: 5, userId: 3, postId: 2, comment: '.....' }
+      }
+    },
+
+    users: {
+      data: {
+        1: { id: 1, name: 'User 1' },
+        2: { id: 2, name: 'User 2' },
+        3: { id: 3, name: 'User 3' }
+      }
+    }
+  }
+}
+```
+
+Notice that Pinia ORM even generates any missing foreign keys (in this case, `userId`) during the normalization process.
+
+Finally, we can retrieve the posts using a fluent query builder similar to many ORM libraries:
+
+```ts
+import { useRepo } from 'pinia-plugin-orm'
+
+// Fetch all posts.
+const posts = useRepo(Post).all()
+
+/*
+  [
+    { id: 1, body: '.....' },
+    { id: 2, body: '.....' }
+  ]
+*/
+
+// Fetch all posts with its relation.
+const posts = useRepo(Post).with('author').get()
+
+/*
+  [
+    {
+      id: 1,
+      body: '.....',
+      author: {
+        id: 1,
+        name: 'User 1'
+      }
+    },
+    {
+      id: 2,
+      body: '.....',
+      author: {
+        id: 2,
+        name: 'User 2'
+      }
+    }
+  ]
+*/
+
+// Fetch data matching specific condition.
+const posts = useRepo(Post).with('author').where('id', 1).get()
+
+/*
+  [
+    {
+      id: 1,
+      body: '.....',
+      author: {
+        id: 1,
+        username: 'user1',
+        name: 'User 1'
+      }
+    }
+  ]
+*/
+```
+
+## Benefits of Normalizing Data
+
+Some basic concepts of normalizing data:
+
+- Each type of data gets its own table in the state.
+- Each table stores an individual item in an object, with the ID of the item as its key and the item as the value
+- Any references to related items is made through foreign keys.
+
+As you may notice, it's pretty much the same as how traditional relational database systems manage relations. With Pinia ORM we're doing the same in a store.
+
+The benefits of this approach are:
+
+- Without duplication, updates only take place once.
+- Our data logic doesn't struggle with deep nesting, and is much easier to write.
+- All we need to retrieve or modify our data is the id and model, using a simple query syntax.
+
+## Normalized Data in Components
+
+Normalized state structure usually implies that each component is responsible for looking up its own data, as opposed to a parent component gathering large amounts of data to be passed down to other components. As it turns out, connected parent components passing ids of items to connected children components is a good pattern for optimizing UI performance.
+
+However, organizing such normalized data is still a challenging task. You'll need logic to handle "normalizing" input data, querying and retrieving data, and handling any relationships your data structure requires. This is where Pinia ORM can help.
