@@ -3,11 +3,11 @@ import { version } from '../../package.json'
 import {
   description,
   discord,
+  editLink,
   font,
   github,
   name,
   releases,
-  editLink,
   twitter,
 } from './meta'
 
@@ -61,5 +61,22 @@ export default defineConfig({
         ],
       },
     ],
+    sidebar: {
+      '/': [
+        {
+          text: 'Guide',
+          items: [
+            {
+              text: 'Why this plugin',
+              link: '/guide/why',
+            },
+            {
+              text: 'Getting Started',
+              link: '/guide/',
+            },
+          ],
+        },
+      ],
+    },
   },
 })
