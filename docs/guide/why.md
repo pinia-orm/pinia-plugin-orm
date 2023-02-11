@@ -99,7 +99,7 @@ class Post extends Model {
 class Comment extends Model {
   static entity = 'comments'
 
-  static fields () {
+  static fields() {
     return {
       id: this.attr(null),
       userId: this.attr(null),
@@ -113,7 +113,7 @@ class Comment extends Model {
 class User extends Model {
   static entity = 'users'
 
-  static fields () {
+  static fields() {
     return {
       id: this.attr(null),
       name: this.string('')

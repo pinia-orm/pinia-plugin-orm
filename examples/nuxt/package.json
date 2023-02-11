@@ -9,8 +9,8 @@
     "build": "nuxi build"
   },
   "dependencies": {
-    "@pinia-plugin-orm/nuxt": "workspace:*",
-    "pinia-plugin-orm": "workspace:*"
+    "@pinia-plugin-orm/nuxt": "latest",
+    "pinia-plugin-orm": "latest"
   },
   "devDependencies": {
     "@pinia/nuxt": "^0.4.6",
