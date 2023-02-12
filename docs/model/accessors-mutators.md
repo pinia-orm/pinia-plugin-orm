@@ -1,0 +1,105 @@
+---
+title: Accessors & Mutators | Model
+outline: deep
+---
+
+# Accessors & Mutators
+
+## Defining Accessors
+
+Model accessors are computed properties which have access to the model instance and all its properties and methods. You can define accessors on models to create virtual properties using methods and ES6 getters.
+
+::: tip NOTE
+Accessors are exempt from persistence and are hidden from model serialization.
+:::
+
+The following example defines an accessor on a `User` model as `fullName`, using ES6 getters, which combines the `firstName` and `lastName` attributes from the model schema, and also a prefix method to allow customizing the `firstName`.
+
+```ts
+class User extends Model {
+  static entity = 'users'
+  static fields () {
+    return {
+      id: this.attr(null),
+      firstName: this.attr(''),
+      lastName: this.attr('')
+    }
+  }
+  // Get full name of the user.
+  get fullName () {
+    return `${this.firstName} ${this.lastName}`
+  }
+  // Add the given prefix to the user's full name.
+  prefix (prefix) {
+    return `${prefix} ${this.fullName}`
+  }
+}
+const user = useRepo(User).save({
+  firstName: 'Elone',
+  lastName: 'Hoo'
+})
+console.log(user.fullName) // 'Elone Hoo'
+console.log(user.prefix('Sir.')) // 'Sir. Elone Hoo'
+```
+
+## Defining Mutators
+
+Pina ORM lets you define mutators which are going to modify the specific field when instantiating the Model. The difference between accessors and mutators is that mutators are going to modify the field itself. You can define a setter, getter or both for a model.
+
+### directly via method
+
+Using directly a method is like using the get attribute. The getter will always be called before displaying the data but will never change the value in the store.
+
+```ts
+import { Model } from 'pinia-plugin-orm'
+import { Attr } from 'pinia-plugin-orm/dist/decorators'
+
+class User extends Model {
+  static entity = 'users'
+  @Attribute('') declare name: string
+  static mutators() {
+    return {
+      name(value: any) {
+        return value.toUpperCase()
+      },
+    }
+  }
+}
+console.log(new User({ name: 'elone hoo' }).name) // 'ELONE HOO'
+```
+
+## via `set` and `get`
+
+Now, with this approach you can also apply a setter which will mutate the value before it is saved in the store.
+
+```ts
+import { Model, useRepo } from 'pinia-plugin-orm'
+import { Attr } from 'pinia-plugin-orm/dist/decorators'
+import { getActivePinia } from 'pinia';
+
+class User extends Model {
+  static entity = 'users'
+  @Attr(0) declare id: number
+  @Attr('') declare name: string
+  static mutators() {
+    return {
+      name: {
+        get: (value: any) => value.toLowerCase(),
+        set: (value: any) => value.toUpperCase(),
+      },
+    }
+  }
+}
+const userRepo = useRepo(User)
+userRepo.save({
+  id: 1,
+  name: 'Elone Hoo',
+})
+console.log(getActivePinia().state.value)
+// users: {
+//   1: {id: 1, name: 'Elone Hoo'},
+// }
+console.log(userRepo.find(1)?.name) // 'Elone Hoo'
+```
+
+If you like decorators you can also use the [`Mutate` decorator]() to apply a mutation to a value.

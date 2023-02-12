@@ -92,6 +92,10 @@ export default defineConfig({
               text: 'Model Reference',
               link: '/model/',
             },
+            {
+              text: 'Accessors & Mutators',
+              link: '/model/accessors-mutators',
+            },
           ],
         },
       ],
