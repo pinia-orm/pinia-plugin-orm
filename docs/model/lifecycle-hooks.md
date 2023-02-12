@@ -1,0 +1,126 @@
+---
+title: Lifecycle Hooks | Model
+outline: deep
+---
+
+# Lifecycle Hooks
+
+:::tip NOTE
+Pinia ORM fires several lifecycle hooks while interacting with the store, allowing you to hook into the particular points in a query lifecycle. Lifecycle hooks allow you to easily execute code each time a specific record is saved, updated or retrieved from the store.
+:::
+
+Supported lifecycle hooks are as follows.
+
+- `creating`
+- `created`
+- `updating`
+- `updated`
+- `saving`
+- `saved`
+- `deleting`
+- `deleted`
+- `retrieved`
+
+## Defining Lifecycle Hooks
+
+You can define lifecycle hooks as static methods with the corresponding lifecycle hook name at Model.
+
+```ts
+class User extends Model {
+  static entity = 'users'
+  static fields () {
+    /* ... */
+  }
+  static saving (model) {
+    // Do something.
+  }
+  static deleted (model) {
+    // Do something.
+  }
+}
+```
+
+## Mutation Lifecycle Hook
+
+Mutation lifecycle hooks are called when you mutate data in the store. The corresponding hook name are `creating`, `updating`, `saving`, `deleting`, `created`, `updated`, `deleted` and `saved`.
+
+When in creating, updating or saving, you can modify the record directly to mutate the data to be saved. You also have access to the original data. (Also available in `created`, `updated` and `saved`)
+
+```ts
+class Post extends Model {
+  static entity = 'posts'
+  static fields () {
+    /* ... */
+  }
+  static creating (model, record) {
+    model.published = true
+    // record is the orginal data passed to the model
+    if (record.notInModelProperty === 1) {
+        model.published = false
+    }
+  }
+}
+```
+
+If you return false from `before` hooks (saving, deleting, updating, creating), that record will not be persisted to the state.
+
+```ts
+class Post extends Model {
+  static entity = 'posts'
+  static fields () {
+    /* ... */
+  }
+  static saving (model) {
+    if (model.doNotModify) {
+      return false
+    }
+  }
+}
+```
+
+## Repository Pinia Hook
+
+For repository actions you can also use pinia if you want to listen to them: `delete`, `insert`, `update`, `flush`, `destroy`, `save` and `fresh`
+
+```ts
+const userRepo = useRepo(User)
+userRepo.piniaStore().$onAction(({
+  name, // name of the action
+  // store, // store instance, same as `someStore`
+  args, // array of parameters passed to the action
+  after, // hook after the action returns or resolves
+  onError, // hook if the action throws or rejects
+}) => {
+  // a shared variable for this specific action call
+  const startTime = Date.now()
+  // this will trigger before an action on `store` is executed
+  console.log(`Start "${name}" with params [${args.join(', ')}].`)
+  // this will trigger if the action succeeds and after it has fully run.
+  // it waits for any returned promised
+  after((result) => {
+    console.log(
+      `Finished "${name}" after ${
+        Date.now() - startTime
+      }ms.\nResult: ${result}.`,
+    )
+  })
+  // this will trigger if the action throws or returns a promise that rejects
+  onError((error) => {
+    console.warn(
+      `Failed "${name}" after ${Date.now() - startTime}ms.\nError: ${error}.`,
+    )
+  })
+})
+```
+
+## Global Lifecycle Hook
+
+For global events you can also use pinia. You can listen to every action: `delete`, `insert`, `update`, `flush`, `destroy`, `save` and `fresh`
+
+```ts
+pinia.use({ store } => {
+  store.$onAction({'save', data } => {
+      console.log(data)
+  })
+})
+```

@@ -104,6 +104,10 @@ export default defineConfig({
               text: 'Decorators',
               link: '/model/decorators',
             },
+            {
+              text: 'Lifecycle Hooks',
+              link: '/model/lifecycle-hooks',
+            },
           ],
         },
       ],
