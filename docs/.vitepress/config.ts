@@ -96,6 +96,10 @@ export default defineConfig({
               text: 'Accessors & Mutators',
               link: '/model/accessors-mutators',
             },
+            {
+              text: 'Casts',
+              link: '/model/casts',
+            },
           ],
         },
       ],
