@@ -100,6 +100,10 @@ export default defineConfig({
               text: 'Casts',
               link: '/model/casts',
             },
+            {
+              text: 'Decorators',
+              link: '/model/decorators',
+            },
           ],
         },
       ],
