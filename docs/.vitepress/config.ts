@@ -50,6 +50,7 @@ export default defineConfig({
     },
     nav: [
       { text: 'Guide', link: '/guide/' },
+      { text: 'Model', link: '/model/' },
       { text: 'API', link: '/api/' },
       {
         text: `v${version}`,

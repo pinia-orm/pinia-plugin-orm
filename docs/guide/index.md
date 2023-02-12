@@ -31,7 +31,7 @@ pnpm add -D pinia-plugin-orm pinia
 This plugin requires pinia >= 2.0.29
 :::
 
-## Adding the plugin to your pinia store
+## Adding the Plugin to your pinia store
 
 ::: code-group
 
