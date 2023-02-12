@@ -108,6 +108,14 @@ export default defineConfig({
               text: 'Lifecycle Hooks',
               link: '/model/lifecycle-hooks',
             },
+            {
+              text: 'Pinia Options',
+              link: '/model/pinia-options',
+            },
+            {
+              text: 'Single Table Inheritance',
+              link: '/model/single-table-inheritance',
+            },
           ],
         },
       ],
