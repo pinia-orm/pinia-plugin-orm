@@ -119,14 +119,14 @@ export default defineConfig({
           ],
         },
         {
-          text:'Relationships',
-          items:[
+          text: 'Relationships',
+          items: [
             {
               text: 'Relationships Reference',
               link: '/relationships/',
             },
-          ]
-        }
+          ],
+        },
       ],
     },
   },
