@@ -55,6 +55,7 @@ export default defineConfig({
       { text: 'Repository', link: '/repository/' },
       { text: 'Nuxt', link: '/nuxt/' },
       { text: 'API', link: '/api/' },
+      { text: 'Playground', link: 'https://playground-pinia-orm-org.vercel.app' },
       {
         text: `v${version}`,
         items: [
