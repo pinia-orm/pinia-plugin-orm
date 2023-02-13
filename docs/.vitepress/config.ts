@@ -149,7 +149,11 @@ export default defineConfig({
             {
               text: 'Retrieving Data',
               link: '/repository/retrieving-data',
-            }
+            },
+            {
+              text: 'Inserting Data',
+              link: '/repository/inserting-data',
+            },
           ]
         }
       ],
