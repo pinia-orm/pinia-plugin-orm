@@ -129,6 +129,14 @@ export default defineConfig({
               text: 'One To One',
               link: '/relationships/one-to-one',
             },
+            {
+              text: 'One To Many',
+              link: '/relationships/one-to-many',
+            },
+            {
+              text: 'Many To Many',
+              link: '/relationships/many-to-many',
+            },
           ],
         },
       ],
