@@ -143,8 +143,8 @@ export default defineConfig({
           ],
         },
         {
-          text:'Repository',
-          items:[
+          text: 'Repository',
+          items: [
             {
               text: 'Repository Reference',
               link: '/repository/',
@@ -165,17 +165,17 @@ export default defineConfig({
               text: 'Deleting Data',
               link: '/repository/deleting-data',
             },
-          ]
+          ],
         },
         {
-          text:'Nuxt',
-          items:[
+          text: 'Nuxt',
+          items: [
             {
-              text:'Nuxt Setup',
-              link:'/nuxt/'
-            }
-          ]
-        }
+              text: 'Nuxt Setup',
+              link: '/nuxt/',
+            },
+          ],
+        },
       ],
     },
   },
