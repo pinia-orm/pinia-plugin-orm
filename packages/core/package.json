@@ -66,7 +66,7 @@
     "uuid": "^9.0.0",
     "vue": "^3.2.47",
     "vue-demi": "^0.13.11",
-    "vue2": "npm:vue@^2.7.14"
+    "vue2": "npm:vue@^3.2.47"
   },
   "pnpm": {
     "packageExtensions": {
