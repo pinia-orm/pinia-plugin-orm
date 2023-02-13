@@ -11,7 +11,7 @@ importers:
       bumpp: ^8.2.1
       c8: ^7.12.0
       eslint: ^8.34.0
-      tsup: ^6.6.0
+      tsup: ^6.6.2
       typescript: ^4.9.5
       vite: ^4.1.1
       vitest: ^0.28.4
@@ -23,7 +23,7 @@ importers:
       bumpp: 8.2.1
       c8: 7.12.0
       eslint: 8.34.0
-      tsup: 6.6.0_typescript@4.9.5
+      tsup: 6.6.2_typescript@4.9.5
       typescript: 4.9.5
       vite: 4.1.1_@types+node@18.13.0
       vitest: 0.28.4_@vitest+ui@0.28.4
@@ -35,11 +35,11 @@ importers:
       '@vueuse/core': ^9.12.0
       unocss: ^0.49.4
       vite: ^4.1.1
-      vitepress: 1.0.0-alpha.45
+      vitepress: 1.0.0-alpha.46
       vue: ^3.2.47
     dependencies:
       '@vueuse/core': 9.12.0_vue@3.2.47
-      vitepress: 1.0.0-alpha.45
+      vitepress: 1.0.0-alpha.46
       vue: 3.2.47
     devDependencies:
       '@unocss/reset': 0.49.4
@@ -134,7 +134,7 @@ importers:
       mkdist: ^1.1.1
       nanoid: ^4.0.1
       pinia: ^2.0.30
-      size-limit: ^8.1.2
+      size-limit: ^8.2.4
       std-env: ^3.3.2
       uuid: ^9.0.0
       vue: ^3.2.47
@@ -152,7 +152,7 @@ importers:
       mkdist: 1.1.1
       nanoid: 4.0.1
       pinia: 2.0.30_nl35ja3bquglpolb4ogn4n6pq4
-      size-limit: 8.1.2
+      size-limit: 8.2.4
       std-env: 3.3.2
       uuid: 9.0.0
       vue: 3.2.47
@@ -6919,8 +6919,8 @@ packages:
     resolution: {integrity: sha512-bLGGlR1QxBcynn2d5YmDX4MGjlZvy2MRBDRNHLJ8VI6l6+9FUiyTFNJ0IveOSP0bcXgVDPRcfGqA0pjaqUpfVg==}
     dev: true
 
-  /size-limit/8.1.2:
-    resolution: {integrity: sha512-/EfKz9I/K2ouBN+BcrTX2WiaPTOX5yiCXtM07jYpuVtyzX9r4FDUsuCq13nNmoWqRFYbtH/7wqgRLvF40AGKoQ==}
+  /size-limit/8.2.4:
+    resolution: {integrity: sha512-Un16nSreD1v2CYwSorattiJcHuAWqXvg4TsGgzpjnoByqQwsSfCIEQHuaD14HNStzredR8cdsO9oGH91ibypTA==}
     engines: {node: ^14.0.0 || ^16.0.0 || >=18.0.0}
     hasBin: true
     dependencies:
@@ -7335,8 +7335,8 @@ packages:
     resolution: {integrity: sha512-336iVw3rtn2BUK7ORdIAHTyxHGRIHVReokCR3XjbckJMK7ms8FysBfhLR8IXnAgy7T0PTPNBWKiH514FOW/WSg==}
     dev: true
 
-  /tsup/6.6.0_typescript@4.9.5:
-    resolution: {integrity: sha512-HxZE7Hj5yNxLFftCXdcJ+Jsax8dI4oKb0bt8fIvd1g/W0FZ46sU1pFBVo15WpOERFcEMH7Hykey/Q+hKO4s9RQ==}
+  /tsup/6.6.2_typescript@4.9.5:
+    resolution: {integrity: sha512-+yQ6SI4rVtp1+YpcYOePumJLEVQ896CDNRt9dJ2L/DeMnLf1+FTOCVw5eioLBH0xLdHgogO9NQ6vPNF5MfkSJw==}
     engines: {node: '>=14'}
     hasBin: true
     peerDependencies:
@@ -7849,8 +7849,8 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /vitepress/1.0.0-alpha.45:
-    resolution: {integrity: sha512-8AVWdymQqBUPmXmAbpapDDg18iDmkNJ47l5eOklBlAjj3n8P3zDAsBhOWSQ6+Nvm6+/GaZATyAvsrg47JD5Idw==}
+  /vitepress/1.0.0-alpha.46:
+    resolution: {integrity: sha512-HiKiHzC0iTPsRsKs8XcsMeMzCpcCt5LWcX9mpDr288Ju+nQf1G8A2+Wm44ZkBsVv4EHxFK4ChmWyZrL1OJUXpg==}
     hasBin: true
     dependencies:
       '@docsearch/css': 3.3.3
