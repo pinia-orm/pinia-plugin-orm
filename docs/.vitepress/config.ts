@@ -158,6 +158,10 @@ export default defineConfig({
               text: 'Updating Data',
               link: '/repository/updating-data',
             },
+            {
+              text: 'Deleting Data',
+              link: '/repository/deleting-data',
+            },
           ]
         }
       ],

@@ -1,0 +1,66 @@
+---
+title: Deleting Data | Repository
+outline: deep
+---
+
+# Deleting Data
+
+::: tip NOTE
+You may delete existing data through various repository methods.
+
+In this section, it assumes you're familiar with the usage of repository. If not, please read through the [Repository Reference](./index) page first.
+:::
+
+## Deleting Data
+
+To delete a record, you may use the destroy method and pass the primary key for the record to be deleted.
+
+```ts
+// Existing records.
+[
+  { id: 1, name: 'Elone Hoo', age: 40 },
+  { id: 2, name: 'elonehoo', age: 30 },
+  { id: 3, name: 'huchengye', age: 20 }
+]
+// Delete the record with id of 2.
+useRepo(User).destroy(2)
+// The result.
+[
+  { id: 1, name: 'Elone Hoo', age: 40 },
+  { id: 3, name: 'huchengye', age: 20 }
+]
+```
+
+In addition, the `destroy` method will accept an array of primary keys to delete multiple records.
+
+```ts
+useRepo(User).destroy([1, 2])
+```
+
+The `destroy` method will return deleted models. When you pass a single primary key, it will return a single model, and if you pass multiple primary keys, it will return a collection of models.
+
+```ts
+const user = await useRepo(User).destroy(2)
+// User { id: 2, name: 'elonehoo', age: 30 }
+const user = await useRepo(User).destroy([1, 2])
+/*
+  [
+    User { id: 1, name: 'Elone Hoo', age: 40 },
+    User { id: 2, name: 'elonehoo', age: 30 }
+  ]
+*/
+```
+
+If you wish to delete the entire records, you may use the flush method.
+
+```ts
+useRepo(User).flush()
+```
+
+## Deleting Data By Query
+
+You can also run a delete statement on a set of records. In this example, we will delete all flights that are marked as inactive.
+
+```ts
+useRepo(User).where('active', false).delete()
+```
