@@ -125,6 +125,10 @@ export default defineConfig({
               text: 'Relationships Reference',
               link: '/relationships/',
             },
+            {
+              text: 'One To One',
+              link: '/relationships/one-to-one',
+            },
           ],
         },
       ],
