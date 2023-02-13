@@ -311,7 +311,7 @@ user.id // <- '2c5ea4c0-4067-11e9-8bad-9b1deb4d3b7d'
 
 ## Defining Relations
 
-You can define a relationship between different models using relation attributes such as `this.hasMany`, `this.belongsTo`, etc. To learn more about these, please take a look at [Relationships](/relationships) page.
+You can define a relationship between different models using relation attributes such as `this.hasMany`, `this.belongsTo`, etc. To learn more about these, please take a look at [Relationships](/relationships/) page.
 
 ## Primary Key
 

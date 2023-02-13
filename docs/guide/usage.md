@@ -36,6 +36,6 @@ const userRepo = useRepo(User, this.$pinia)
 
 ## Helpers
 
-Look into the [API Reference](/api) for usages of useCollect and more
+Look into the [API Reference](/api/) for usages of useCollect and more
 
 The nice thing of these composables is that they work also with existing `vuex-orm` and `vuex-orm-next`. So if you like them you can just import these helpers e.g. by `import { useCollect } from 'pinia-plugin-orm/dist/helpers'`
