@@ -154,6 +154,10 @@ export default defineConfig({
               text: 'Inserting Data',
               link: '/repository/inserting-data',
             },
+            {
+              text: 'Updating Data',
+              link: '/repository/updating-data',
+            },
           ]
         }
       ],

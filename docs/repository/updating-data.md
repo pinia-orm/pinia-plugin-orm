@@ -1,0 +1,58 @@
+---
+title: Updating Data | Repository
+outline: deep
+---
+
+# Updating Data
+
+:::tip NOTE
+You may update existing data through various repository methods.
+
+In this section, it assumes you're familiar with the usage of repository. If not, please read through the [Repository Reference](./index) page first.
+:::
+
+## Updating Data
+
+The `save` method may also be used to update models that already exist in the store. The `save` method will first attempt to locate a matching record using its primary key in the field and value pairs. If the record exists, it will be updated with the values in the other pairs.
+
+```ts
+// Existing records.
+[
+  { id: 1, name: 'Elone Hoo', age: 40 },
+  { id: 2, name: 'elonehoo', age: 30 },
+  { id: 3, name: 'huchengye', age: 20 }
+]
+// Update the "age" of the record with id of 2.
+useRepo(User).save({ id: 2, age: 50 })
+// The result.
+[
+  { id: 1, name: 'Elone Hoo', age: 40 },
+  { id: 2, name: 'elonehoo', age: 50 }, // <- Updated.
+  { id: 3, name: 'huchengye', age: 20 }
+]
+```
+
+You may pass an array of objects to update multiple records at once.
+
+```ts
+useRepo(User).save([
+  { id: 2, age: 50 },
+  { id: 3, age: 80 }
+])
+```
+
+The `save` method will also "normalize" the given data. That means if you pass an object that contains any nested relationships, those relationships are also updated. Please see [Repository Reference](./index) for more details about data normalization.
+
+## Constraints By Query
+
+In addition to updating records by passing in the object that contains the primary key to the `save` method, you may constrain the query to control what records are to be updated by the `update` method and using a `where` clause.
+
+```ts
+useRepo(User).where('id', 1).update({ age: 50 })
+```
+
+When constraining the query by the `where` clause, all updates will be performed against any number of records that match a given query.
+
+In the following example, all flights that are `active` and have a destination of `Tokyo` will be marked as delayed:
+
+As opposed to updating records by the `save` method, it only accepts an object as the argument (not an array). Also, it will not normalize the data, and any nested relationships will be ignored.
