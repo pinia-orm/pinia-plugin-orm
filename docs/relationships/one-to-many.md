@@ -1,0 +1,208 @@
+---
+title: One To Many | Relationships
+outline: deep
+---
+
+# One To Many
+
+::: tip NOTE
+A one-to-many relationship is used to define relationships where a single model owns any amount of other models. For example, a blog post may have an infinite number of comments. Pinia ORM provides the relationship attribute to define such a relationship.
+:::
+
+## Defining The One To Many Relationship
+
+Like all other Pinia ORM relationships, one-to-many relationships are defined by placing a relationship attribute as a model field. As for one-to-many relationship, you may define the field using the `hasMany` attribute. You may define the `Post` model that has many `Comment` models as shown below:
+
+```ts
+class Post extends Model {
+  static entity = 'posts'
+  static fields () {
+    return {
+      id: this.attr(null),
+      title: this.string(''),
+      comments: this.hasMany(Comment, 'postId')
+    }
+  }
+}
+class Comment extends Model {
+  static entity = 'comments'
+  static fields () {
+    return {
+      id: this.attr(null),
+      postId: this.attr(null),
+      body: this.string('')
+    }
+  }
+}
+```
+
+The first argument passed to the `hasMany` method is the related model, and the second argument is the foreign key.
+
+Remember that Pinia ORM assumes that the foreign key should have a value matching the `id` (or the custom `static primaryKey`) field of the parent. Pinia ORM will look for the value of the user's `id` field in the `userId` field of the Comment record. If you would like the relationship to use a value other than `id`, you may pass a third argument to the `hasMany` method specifying your custom key:
+
+```ts
+class Post extends Model {
+  static entity = 'posts'
+  static fields () {
+    return {
+      id: this.attr(null),
+      localId: this.attr(null),
+      title: this.string(''),
+      comments: this.hasMany(Comment, 'postId')
+    }
+  }
+}
+```
+
+## One To Many (Inverse)
+
+Now that we can access all of a post's comments let's define a relationship to allow a comment to access its parent post. To define the inverse of a `hasMany` relationship, define a relationship on the child model, which calls the `belongsTo` method just like with the `hasOne` relation:
+
+```ts
+class Comment extends Model {
+  static entity = 'comments'
+  static fields () {
+    return {
+      id: this.attr(null),
+      postId: this.attr(null),
+      body: this.string(''),
+      post: this.belongsTo(Post, 'postId')
+    }
+  }
+}
+```
+
+In the example above, Pinia ORM will try to match the `postId` from the `Comment` model to an `id` on the `Post` model.
+
+If your parent model does not use `id` as its primary key, or you wish to join the child model to a different field, you may pass a third argument to the `belongsTo` method specifying your parent model's custom key:
+
+```ts
+class Comment extends Model {
+  static entity = 'comments'
+  static fields () {
+    return {
+      id: this.attr(null),
+      postId: this.attr(null),
+      body: this.string(''),
+      post: this.belongsTo(Post, 'postId', 'otherKey')
+    }
+  }
+}
+```
+
+## One To Many By
+
+One To Many By is similar to One To Many relation but having foreign keys at parent Model as an array. For example, there could be a situation where you must parse data looks something like:
+
+```ts
+{
+  nodes: {
+    1: { id: 1, name: 'Node 01' },
+    2: { id: 2, name: 'Node 02' }
+  },
+  clusters: {
+    1: {
+      id: 1,
+      name: 'Cluster 01',
+      nodeIds: [1, 2]
+    }
+  }
+}
+```
+
+As you can see, `clusters` have "Has Many" relationship with `nodes`, but nodes do not have foreign key set (`clusterId`). We can't use Has Many relation in this case because there is no foreign key to look for. In such cases, you may use `hasManyBy` relationship.
+
+```ts
+class Node extends Model {
+  static entity = 'nodes'
+  static fields () {
+    return {
+      id: this.attr(null),
+      name: this.string('')
+    }
+  }
+}
+class Cluster extends Model {
+  static entity = 'clusters'
+  static fields () {
+    return {
+      id: this.attr(null),
+      nodeIds: this.attr([]),
+      name: this.string('')
+      nodes: this.hasManyBy(Node, 'nodeIds')
+    }
+  }
+}
+```
+
+Now the Cluster model is going to look for Nodes using ids at Cluster's own `nodeIds` attributes.
+
+As always, you can pass the third argument to specify which id to look for.
+
+```ts
+class Cluster extends Model {
+  static entity = 'clusters'
+  static fields () {
+    return {
+      id: this.attr(null),
+      nodeIds: this.attr(null),
+      nodes: this.hasManyBy(Node, 'nodeIds', 'nodeId')
+    }
+  }
+}
+```
+
+## Has Many Through
+
+The "has-many-through" relationship provides a convenient shortcut for accessing distant relations via an intermediate relation. For example, a Country might have many Posts through an intermediate User. In this example, you could easily gather all posts for a given country. Let's look at the models required to define this relationship:
+
+```ts
+class Country extends Model {
+  static entity = 'countries'
+  static fields () {
+    return {
+      id: this.attr(null),
+      posts: this.hasManyThrough(Post, User, 'country_id', 'user_id')
+    }
+  }
+}
+class User extends Model {
+  static entity = 'users'
+  static fields () {
+    return {
+      id: this.attr(null),
+      country_id: this.attr(null)
+    }
+  }
+}
+class Post extends Model {
+  static entity = 'posts'
+  static fields () {
+    return {
+      id: this.attr(null),
+      user_id: this.attr(null)
+    }
+  }
+}
+```
+
+Though posts do not contain a country_id column, the `hasManyThrough` relation provides access to a country's posts. To perform this query, Vuex ORM inspects the `country_id` on the intermediate User model. After finding the matching user IDs, they are used to query the Post model.
+
+The first argument passed to the `hasManyThrough` method is the final model we wish to access, while the second argument is the intermediate model. The third argument is the name of the foreign key on the intermediate model. The fourth argument is the name of the foreign key on the final model.
+
+If you would like to customize the local key for the models, you could also pass the 5th argument which is the local key, while the 6th argument is the local key of the intermediate model.
+
+```ts
+this.hasManyThrough(
+  Post,               // Final model we wish to access.
+  User,               // Intermediate model.
+  'country_id',       // Foreign key on User model.
+  'user_id',          // Foreign key on Post model.
+  'local_country_id', // Local key on Country model.
+  'local_user_id'     // Local key on User model.
+)
+```
+
+::: info
+When creating data that contains `hasManyThrough` relationship without intermediate relation, the intermediate record will not be generated.
+:::
