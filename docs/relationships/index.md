@@ -38,8 +38,8 @@ class Post extends Model {
 
 Pinia ORM provides a variety of relationship attributes. Please see corresponding documentation to learn how to define the relationships you would like to construct.
 
-- [One to One]()
-- [One to Many]()
+- [One to One](./one-to-one)
+- [One to Many](./one-to-many)
 
 ### Composite Key support
 

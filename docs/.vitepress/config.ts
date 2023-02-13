@@ -139,6 +139,15 @@ export default defineConfig({
             },
           ],
         },
+        {
+          text:'Repository',
+          items:[
+            {
+              text: 'Repository Reference',
+              link: '/repository/',
+            }
+          ]
+        }
       ],
     },
   },
