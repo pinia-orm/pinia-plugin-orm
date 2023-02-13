@@ -51,6 +51,9 @@ export default defineConfig({
     nav: [
       { text: 'Guide', link: '/guide/' },
       { text: 'Model', link: '/model/' },
+      { text: 'Relationships', link: '/relationships/' },
+      { text: 'Repository', link: '/repository/' },
+      { text: 'Nuxt', link: '/nuxt/' },
       { text: 'API', link: '/api/' },
       {
         text: `v${version}`,
