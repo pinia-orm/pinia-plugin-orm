@@ -163,6 +163,15 @@ export default defineConfig({
               link: '/repository/deleting-data',
             },
           ]
+        },
+        {
+          text:'Nuxt',
+          items:[
+            {
+              text:'Nuxt Setup',
+              link:'/nuxt/'
+            }
+          ]
         }
       ],
     },
