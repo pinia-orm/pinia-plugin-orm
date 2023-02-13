@@ -10,3 +10,4 @@ coverage
 docs/.vitepress/cache/deps/*.*
 test/core/src/self
 *.md
+playground
