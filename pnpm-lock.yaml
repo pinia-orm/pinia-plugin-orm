@@ -212,7 +212,7 @@ importers:
       monaco-editor: 0.35.0
       monaco-editor-core: ^0.35.0
       pinia: ^2.0.30
-      pinia-plugin-orm: workspace:^0.0.2
+      pinia-plugin-orm: workspace:*
       splitpanes: ^3.1.5
       theme-vitesse: ^0.6.2
       typescript: ^4.9.5
@@ -2779,6 +2779,7 @@ packages:
 
   /@types/node/18.13.0:
     resolution: {integrity: sha512-gC3TazRzGoOnoKAhUx+Q0t8S9Tzs74z7m0ipwGpSqQrleP14hKxP4/JUeEQcD3W1/aIpnWl8pHowI7WokuZpXg==}
+    dev: true
 
   /@types/normalize-package-data/2.4.1:
     resolution: {integrity: sha512-Gj7cI7z+98M282Tqmp2K5EIsoouUEzbBJhQQzDE3jSIRk6r9gsz0oUokqIUR4u1R3dMHo0pDHM7sNOHyhulypw==}
@@ -3183,7 +3184,7 @@ packages:
       vite: ^4.0.0
       vue: ^3.2.25
     dependencies:
-      vite: 4.1.1_@types+node@18.13.0
+      vite: 4.1.1
       vue: 3.2.47
 
   /@vitejs/plugin-vue2/2.2.0_vite@4.1.1+vue@2.7.14:
@@ -9444,6 +9445,7 @@ packages:
       rollup: 3.15.0
     optionalDependencies:
       fsevents: 2.3.2
+    dev: true
 
   /vitepress/1.0.0-alpha.46:
     resolution: {integrity: sha512-HiKiHzC0iTPsRsKs8XcsMeMzCpcCt5LWcX9mpDr288Ju+nQf1G8A2+Wm44ZkBsVv4EHxFK4ChmWyZrL1OJUXpg==}
