@@ -105,7 +105,7 @@ const user = useRepo(User).with('posts').first()
 /*
   {
     id: 1,
-    name: 'John Doe',
+    name: 'Elone Hoo',
     posts: [
       { id: 1, userId: 1, title: '...' },
       { id: 2, userId: 1, title: '...' }
@@ -256,7 +256,7 @@ When you save a user record containing post records under the posts key, Pinia O
 // The user record.
 const user = {
   id: 1,
-  name: 'John Doe',
+  name: 'Elone Hoo',
   posts: [
     { id: 1, userId: 1, title: '...' },
     { id: 2, userId: 1, title: '...' }
@@ -268,7 +268,7 @@ useRepo(User).save(user)
 {
   entities: {
     users: {
-      1: { id: 1, name: 'John Doe' }
+      1: { id: 1, name: 'Elone Hoo' }
     },
     posts: {
       1: { id: 1, userId: 1, title: '...' },
@@ -284,7 +284,7 @@ Note that Pinia ORM automatically generates any missing foreign keys during the 
 // The user record.
 const user = {
   id: 1,
-  name: 'John Doe',
+  name: 'Elone Hoo',
   posts: [
     { id: 1, title: '...' }, // <- No foreign key.
     { id: 2, title: '...' }  // <- No foreign key.
@@ -296,7 +296,7 @@ useRepo(User).save(user)
 {
   entities: {
     users: {
-      1: { id: 1, name: 'John Doe' }
+      1: { id: 1, name: 'Elone Hoo' }
     },
     posts: {
       1: { id: 1, userId: 1, title: '...' }, // Foreign key generated.
@@ -332,7 +332,7 @@ When you save the user record, relationships will be saved in a normalized form 
 {
   entities: {
     users: {
-      1: { id: 1, name: 'John Doe' }
+      1: { id: 1, name: 'Elone Hoo' }
     },
     posts: {
       1: { id: 1, userId: 1, title: 'Title A' },

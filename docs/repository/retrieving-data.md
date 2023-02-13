@@ -1,0 +1,251 @@
+---
+title: Retrieving Data | Repository
+outline: deep
+---
+
+# Retrieving Data
+
+Pinia ORM provides a handful of methods to retrieve inserted data. In this section, we'll walk through various ways to query the Pinia Store.
+
+When querying the data from the store, in most cases, you want to query data inside the computed property. This way, when any data changes, the part of your application where you use those data gets updated reactively. It works as same as Pinia Getters.
+
+```vue
+<template>
+  <ul>
+    <li v-for="user in users" :key="user.id">
+      {{ user.name }}
+    </li>
+  </ul>
+</template>
+
+<script>
+import { mapRepos } from 'pinia-plugin-orm'
+import User from '@/models/User'
+export default {
+  computed: {
+    ...mapRepos({
+      userRepo: User
+    }),
+    users () {
+      return this.userRepo.all()
+    }
+  }
+}
+</script>
+```
+
+:::tip NOTE
+To retrieve records with its relationships, you must explicitly specify which relationships to fetch by with the query chain. For example, if you want to fetch users with posts, you must do `userRepo.with('posts').get()`. See [Relationships](./index) page for more detail.
+:::
+
+## Retrieving Models
+
+Once you have created the repository, you are ready to start retrieving data from the store. Think of each repository as a powerful query builder allowing you to fluently query the store associated with the repository model. For example:
+
+```ts
+// Get all users from the store.
+const users = useRepo(User).all()
+```
+
+:::warning
+The difference with the `get` is that this method will not process any query chain. It'll always retrieve all models. So this `useRepo(User).withAll.all()` won't retrieve any relations. Use always `get`.
+:::
+
+The `all` method will return all of the results in the model's store. Since each repository serves as a query builder, you may also add constraints to queries, and then use the `get` method to retrieve the results.
+
+```ts
+// Get all active users.
+const users = useRepo(User).where('active', true).get()
+```
+
+Don't worry, we'll cover all of the available query methods in upcoming sections.
+
+Note that the retrieved models are indeed the model instances. Not the plain object. For example, when you call `useRepo(User).get()`, you'll get a list of `User` model instances as a result.
+
+## Retrieving Single Models
+
+In addition to retrieving all of the records for the given store, you may also retrieve single records using `find` or `first`. Instead of returning a collection of models, these methods return a single model instance.
+
+```ts
+// Retrieve a model by its primary key.
+const user = useRepo(User).find(1)
+// Retrieve the first model matching the query constraints.
+const user = useRepo(User).where('active', true).first()
+```
+
+## Where Clauses
+
+You may use the `where` method to add `where` clauses to the query. The most basic call to `where` requires 2 arguments. The first argument is the name of the field. The second argument is the value to evaluate against the field.
+
+For example, here is a query that verifies the value of the "votes" column is equal to 100:
+
+```ts
+const users = useRepo(User).where('votes', 100).get()
+```
+
+You may also define the second argument as a closure to perform advanced checks.
+
+```ts
+const users = useRepo(User).where('votes', (value) => {
+  return value >= 100
+}).get()
+```
+
+Finally, the first argument can be a closure to perform more powerful querying.
+
+```ts
+const users = useRepo(User).where((user) => {
+  return user.vote >= 100 && user.active
+}).get()
+```
+
+### Or Statements
+
+You may chain where constraints together as well as add "or" clauses to the query. The `orWhere` method accepts the same arguments as the where method.
+
+```ts
+const users = useRepo(User)
+  .where('votes', 100)
+  .orWhere('name', 'Elone Hoo')
+  .get()
+```
+
+If you need to group an "or" condition within parentheses, you should simply use closure to do so.
+
+```ts
+const users = useRepo(User)
+  .where('votes', 100)
+  .orWhere((user) => {
+    return user.votes > 50 && user.name === 'Elone Hoo'
+  })
+  .get()
+```
+
+## Ordering
+
+The `orderBy` method allows you to sort the result of the query by a given field. The first argument to the `orderBy` method should be the field you wish to sort by, while the second argument controls the direction of the sort, and maybe either `asc` or `desc`. If there is no second argument, the direction is going to defaults to `asc`.
+
+```ts
+// Order users by name.
+const users = useRepo(User).orderBy('name').get()
+// You may also chain orderBy.
+const users = useRepo(User)
+  .orderBy('name')
+  .orderBy('age', 'desc')
+  .get()
+```
+
+You may also pass a function as the first argument. The function will accept a record that is being sorted, and it should return value to be sorted by.
+
+```ts
+// Sort user name by its third character.
+const users = useRepo(User).orderBy(user => user.name[2]).get()
+```
+
+## Grouping
+
+The groupBy method allows you to group your results by columns.
+
+```ts
+// Group users by name.
+const users = useRepo(User).groupBy('name').get()
+// You may also chain groupBy.
+const users = useRepo(User)
+  .groupBy('name')
+  .groupBy('age')
+  .get()
+// or pass them at once
+const users = useRepo(User).groupBy('name', 'age').get()
+```
+
+## Caching
+
+The `useCache` method allows you to cache the results if your store requests are more frequent. The initial retrieve query will be a bit smaller but all next are very fast.
+
+For caching a custom [Weakref](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakRef) provider is used. That way garbage collection is included.
+
+```ts
+// Generate a cache with a auto generated key.
+const users = useRepo(User).useCache().get()
+// Generate a cache with a manual key (recommanded).
+const users = useRepo(User).useCache('key').get()
+// Generate a cache with a manual key and dynamic params (recommanded).
+const users = useRepo(User).useCache('key', { id: idProperty }).get()
+```
+
+You can access the current cache instance with the `cache` method
+
+```ts
+// Get the repos cache instance
+const cache = useRepo(User).cache()
+// Getting the size of the current cache
+useRepo(User).cache().size
+// Checking if a specific key exist
+useRepo(User).cache().has('key')
+```
+
+As a default configuration the cache is shared between the repos. If you don't want it to be shared you can set it in the config.
+
+```ts
+// Setting the cache not to be shared for every repo
+createORM({
+  cache: {
+    shared: false,
+  },
+})
+```
+
+## Limit & Offset
+
+To limit the number of results returned from the query, or to skip a given number of results in the query, you may use the `limit` and `offset` methods.
+
+```ts
+const user = useRepo(User).limit(30).offset(10).get()
+```
+
+## Relationship Existence & Absence
+
+When querying the record, you may wish to limit your results based on the existence of a relationship. For example, imagine you want to retrieve all blog posts that have at least one comment. To do so, you may pass the name of the relationship to the `has` methods.
+
+```ts
+// Retrieve all posts that have at least one comment.
+useRepo(User).has('comments').get()
+```
+
+You may also specify count as well.
+
+```ts
+// Retrieve all posts that have at least 2 comments.
+useRepo(User).has('comments', 2).get()
+```
+
+Also, you may add an operator to customize your query even more. The supported operators are `=`, `!=`, `>`, `>=`, `<`, and `<=`.
+
+```ts
+// Retrieve all posts that have more than 2 comments.
+useRepo(User).has('comments', '>', 2).get()
+// Retrieve all posts that have less than or exactly 2 comments.
+useRepo(User).has('comments', '<=', 2).get()
+```
+
+If you need even more power, you may use the whereHas method to put "where" conditions on your `has` queries. This method allows you to add customized constraints to a relationship constraint, such as checking the content of a comment.
+
+```ts
+// Retrieve all posts that have comment from user_id 1.
+useRepo(Post).whereHas('comments', (query) => {
+  query.where('user_id', 1)
+}).get()
+```
+
+To retrieve records depending on the absence of the relationship, use the doesntHave and `whereDoesntHave` methods. These methods will work the same as `has` and `whereHas` but with the opposite result.
+
+```ts
+// Retrieve all posts that doesn't have comments.
+useRepo(Post).doesntHave('comments').get()
+// Retrieve all posts that doesn't have comment with user_id of 1.
+useRepo(Post).whereDoesntHave('comments', (query) => {
+  query.where('user_id', 1)
+}).get()
+```
+
+You have also the corresponding or conditions `orHas`, `orDoesntHave`, `orWhereHas` and `orWhereDoesntHave`.

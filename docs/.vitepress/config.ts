@@ -145,6 +145,10 @@ export default defineConfig({
             {
               text: 'Repository Reference',
               link: '/repository/',
+            },
+            {
+              text: 'Retrieving Data',
+              link: '/repository/retrieving-data',
             }
           ]
         }
