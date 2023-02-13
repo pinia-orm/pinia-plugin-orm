@@ -190,9 +190,10 @@ importers:
 
   playground:
     specifiers:
+      '@antfu/eslint-config': ^0.35.2
       '@antfu/utils': ^0.7.2
       '@headlessui/vue': ^1.7.9
-      '@iconify/json': ^2.2.21
+      '@iconify/json': ^2.2.20
       '@types/file-saver': ^2.0.5
       '@types/node': ^18.13.0
       '@types/splitpanes': ^2.2.1
@@ -201,13 +202,14 @@ importers:
       '@vue/runtime-core': ^3.2.47
       '@vue/runtime-dom': ^3.2.47
       '@vue/shared': ^3.2.47
-      '@vueuse/core': ^9.12.0
+      '@vueuse/core': 9.12.0
       '@vueuse/integrations': ^9.12.0
-      '@vueuse/shared': ^9.12.0
-      file-save: ^0.2.0
+      '@vueuse/shared': 9.12.0
+      eslint: ^8.34.0
+      file-saver: ^2.0.5
       jszip: ^3.10.1
       lz-string: ^1.4.4
-      monaco-editor: ^0.35.0
+      monaco-editor: 0.35.0
       monaco-editor-core: ^0.35.0
       pinia: ^2.0.30
       pinia-plugin-orm: workspace:^0.0.2
@@ -233,7 +235,7 @@ importers:
       '@vueuse/core': 9.12.0_vue@3.2.47
       '@vueuse/integrations': 9.12.0_vue@3.2.47
       '@vueuse/shared': 9.12.0_vue@3.2.47
-      file-save: 0.2.0
+      file-saver: 2.0.5
       jszip: 3.10.1
       lz-string: 1.4.4
       monaco-editor: 0.35.0
@@ -245,11 +247,13 @@ importers:
       vscode-html-languageservice: 5.0.4
       vue: 3.2.47
     devDependencies:
+      '@antfu/eslint-config': 0.35.2_7kw3g6rralp5ps6mg3uyzz6azm
       '@iconify/json': 2.2.21
       '@types/file-saver': 2.0.5
       '@types/node': 18.13.0
       '@vitejs/plugin-vue': 4.0.0_vite@4.1.1+vue@3.2.47
       '@vue/compiler-sfc': 3.2.47
+      eslint: 8.34.0
       typescript: 4.9.5
       unplugin-icons: 0.15.2_@vue+compiler-sfc@3.2.47
       unplugin-vue-components: 0.23.0_vue@3.2.47
@@ -5386,10 +5390,8 @@ packages:
       flat-cache: 3.0.4
     dev: true
 
-  /file-save/0.2.0:
-    resolution: {integrity: sha512-teMqpbPLBDAHEDAPYEb8fGfng4S6eGZcsN0CLM1ow0w1vtqTMBwNmd82dEc81O3C1BEs1EY8L18Ma6Q6O++v1A==}
-    dependencies:
-      mkdirp: 0.5.6
+  /file-saver/2.0.5:
+    resolution: {integrity: sha512-P9bmyZ3h/PRG+Nzga+rbdI4OEpNDzAVyy74uVO9ATgzLK6VtAsYybF/+TOCvrc0MO793d6+42lLyZTw7/ArVzA==}
     dev: false
 
   /file-uri-to-path/1.0.0:
@@ -6736,6 +6738,7 @@ packages:
 
   /minimist/1.2.8:
     resolution: {integrity: sha512-2yyAR8qBkN3YuheJanUpWC5U3bb5osDywNB8RzDVlDwDHbocAJveqqj1u8+SVD7jkWT4yvsHCpWqqWqAxb0zCA==}
+    dev: true
 
   /minipass/3.3.6:
     resolution: {integrity: sha512-DxiNidxSEK+tHG6zOIklvNOwm3hvCrbUrdtzY74U6HKTJxvIDfOUL5W5P2Ghd3DTkhhKPYGqeNUIh5qcM4YBfw==}
@@ -6758,13 +6761,6 @@ packages:
     resolution: {integrity: sha512-98OnjcWaNEIRUJJe9rFoWlbkQ5n9z8F86wIPCrI961YEViiVybTuJln919WuuSHSnlrqXy0ELKCntoPy8C7lqg==}
     engines: {node: '>=0.4.0'}
     dev: true
-
-  /mkdirp/0.5.6:
-    resolution: {integrity: sha512-FP+p8RB8OWpF3YZBCrP5gtADmtXApB5AMLn+vdyA+PyxCjrCs00mjyUozssO33cwDeT3wNGdLxJ5M//YqtHAJw==}
-    hasBin: true
-    dependencies:
-      minimist: 1.2.8
-    dev: false
 
   /mkdirp/1.0.4:
     resolution: {integrity: sha512-vVqVZQyf3WLx2Shd0qJ9xuvqgAyKPLAiqITEtqW0oIUjzo3PePDd6fW9iFz30ef7Ysp/oiWqbhszeGWW2T6Gzw==}
