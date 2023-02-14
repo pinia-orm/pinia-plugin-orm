@@ -17,8 +17,11 @@ hero:
       text: Get Started
       link: /guide/
     - theme: alt
-      text: Why pinia-plugin-orm?
+      text: Why pinia-orm?
       link: /guide/why
+    - theme: alt
+      text: Playground
+      link: https://playground-pinia-orm-org.vercel.app
     - theme: alt
       text: View on GitHub
       link: https://github.com/pinia-orm/pinia-plugin-orm
