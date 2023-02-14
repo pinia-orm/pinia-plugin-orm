@@ -19,7 +19,7 @@
 </p>
 
 <p align="center">
- <a href="https://pinia-orm-org.vercel.app">Documentation</a> | <a href="https://pinia-orm-org.vercel.app/guide/">Getting Started</a> | <a href="https://pinia-orm-org.vercel.app/guide/#examples">Examples</a> | <a href="https://pinia-orm-org.vercel.app/guide/why.html">Why Vitest?</a> | <a href="https://playground-pinia-orm-org.vercel.app">Playground</a>
+ <a href="https://pinia-orm-org.vercel.app">Documentation</a> | <a href="https://pinia-orm-org.vercel.app/guide/">Getting Started</a> | <a href="https://pinia-orm-org.vercel.app/guide/#examples">Examples</a> | <a href="https://pinia-orm-org.vercel.app/guide/why.html">Why PiniaOrm?</a> | <a href="https://playground-pinia-orm-org.vercel.app">Playground</a>
 </p>
 
 <h4 align="center">
