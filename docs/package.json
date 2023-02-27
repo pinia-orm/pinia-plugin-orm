@@ -10,14 +10,14 @@
     "serve": "vitepress serve"
   },
   "dependencies": {
-    "@vueuse/core": "^9.12.0",
-    "vitepress": "1.0.0-alpha.46",
+    "@vueuse/core": "^9.13.0",
+    "vitepress": "1.0.0-alpha.48",
     "vue": "^3.2.47"
   },
   "devDependencies": {
-    "@unocss/reset": "^0.49.4",
+    "@unocss/reset": "^0.50.1",
     "@vitejs/plugin-vue": "^4.0.0",
-    "unocss": "^0.49.4",
-    "vite": "^4.1.1"
+    "unocss": "^0.50.1",
+    "vite": "^4.1.4"
   }
 }
