@@ -23,9 +23,7 @@ export default defineNuxtModule<InstallOptions>({
     addTemplate({
       filename: 'orm-options.mjs',
       getContents() {
-        return `
-export const ormOptions = ${JSON.stringify(options, null, 2)}
-        `
+        return `export const ormOptions = ${JSON.stringify(options, null, 2)}`
       },
     })
 
