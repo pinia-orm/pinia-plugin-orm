@@ -9,14 +9,14 @@
     "build": "nuxi build"
   },
   "dependencies": {
-    "@pinia-plugin-orm/nuxt": "latest",
-    "pinia-plugin-orm": "latest"
+    "@pinia-plugin-orm/nuxt": "workspace:latest",
+    "pinia-plugin-orm": "workspace:latest"
   },
   "devDependencies": {
-    "@pinia/nuxt": "^0.4.6",
+    "@pinia/nuxt": "^0.4.7",
     "nanoid": "^4.0.1",
-    "nuxt": "^3.2.0",
-    "pinia": "^2.0.30",
+    "nuxt": "^3.2.2",
+    "pinia": "^2.0.32",
     "uuid": "^9.0.0",
     "vue": "^3.2.47"
   }
