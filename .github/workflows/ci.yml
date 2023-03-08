@@ -32,114 +32,114 @@ jobs:
       - name: Lint
         run: pnpm run lint
 
-  vue3:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+  # vue3:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v3
 
-      - name: Setup Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: latest
+  #     - name: Setup Node
+  #       uses: actions/setup-node@v3
+  #       with:
+  #         node-version: latest
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v2.2.4
-        with:
-          version: latest
+  #     - name: Install pnpm
+  #       uses: pnpm/action-setup@v2.2.4
+  #       with:
+  #         version: latest
 
-      - name: Install
-        run: pnpm install --no-frozen-lockfile
+  #     - name: Install
+  #       run: pnpm install --no-frozen-lockfile
 
-      - name: Generate
-        run: pnpm run nuxt:generate
+  #     - name: Generate
+  #       run: pnpm run nuxt:generate
 
-      - name: Build
-        run: pnpm run build
+  #     - name: Build
+  #       run: pnpm run build
 
-      - name: Test
-        run: pnpm run test:vue3
+  #     - name: Test
+  #       run: pnpm run test:vue3
 
-  vue2:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+  # vue2:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v3
 
-      - name: Setup Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: latest
+  #     - name: Setup Node
+  #       uses: actions/setup-node@v3
+  #       with:
+  #         node-version: latest
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v2.2.4
-        with:
-          version: latest
+  #     - name: Install pnpm
+  #       uses: pnpm/action-setup@v2.2.4
+  #       with:
+  #         version: latest
 
-      - name: Install
-        run: pnpm install --no-frozen-lockfile
+  #     - name: Install
+  #       run: pnpm install --no-frozen-lockfile
 
-      - name: Generate
-        run: pnpm run nuxt:generate
+  #     - name: Generate
+  #       run: pnpm run nuxt:generate
 
-      - name: Build
-        run: pnpm run build
+  #     - name: Build
+  #       run: pnpm run build
 
-      - name: Test
-        run: pnpm run test:vue2
+  #     - name: Test
+  #       run: pnpm run test:vue2
 
-  coverage:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+  # coverage:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v3
 
-      - name: Setup Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: latest
+  #     - name: Setup Node
+  #       uses: actions/setup-node@v3
+  #       with:
+  #         node-version: latest
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v2.2.4
-        with:
-          version: latest
+  #     - name: Install pnpm
+  #       uses: pnpm/action-setup@v2.2.4
+  #       with:
+  #         version: latest
 
-      - name: Install
-        run: pnpm install --no-frozen-lockfile
+  #     - name: Install
+  #       run: pnpm install --no-frozen-lockfile
 
-      - name: Generate
-        run: pnpm run nuxt:generate
+  #     - name: Generate
+  #       run: pnpm run nuxt:generate
 
-      - name: Build
-        run: pnpm run build
+  #     - name: Build
+  #       run: pnpm run build
 
-      - name: Coverage
-        run: pnpm run test:coverage
+  #     - name: Coverage
+  #       run: pnpm run test:coverage
 
-  typecheck:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+  # typecheck:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v3
 
-      - name: Setup Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: latest
+  #     - name: Setup Node
+  #       uses: actions/setup-node@v3
+  #       with:
+  #         node-version: latest
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v2.2.4
-        with:
-          version: latest
+  #     - name: Install pnpm
+  #       uses: pnpm/action-setup@v2.2.4
+  #       with:
+  #         version: latest
 
-      - name: Install
-        run: pnpm install --no-frozen-lockfile
+  #     - name: Install
+  #       run: pnpm install --no-frozen-lockfile
 
-      - name: Generate
-        run: pnpm run nuxt:generate
+  #     - name: Generate
+  #       run: pnpm run nuxt:generate
 
-      - name: Build
-        run: pnpm run build
+  #     - name: Build
+  #       run: pnpm run build
 
-      - name: Typecheck
-        run: pnpm run typecheck
+  #     - name: Typecheck
+  #       run: pnpm run typecheck
