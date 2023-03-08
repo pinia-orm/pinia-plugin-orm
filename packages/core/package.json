@@ -1,0 +1,20 @@
+{
+  "name": "pinia-plugin-orm",
+  "version": "0.0.3",
+  "description": "",
+  "scripts": {},
+  "keywords": [
+    "pinia",
+    "orm",
+    "plugin"
+  ],
+  "author": "Elone Hoo <hi@elonehoo.me>",
+  "license": "MIT",
+  "devDependencies": {
+    "core-js": "^3.29.0",
+    "pinia": "^2.0.32",
+    "uuid": "^9.0.0",
+    "vue": "^3.2.47",
+    "vue-demi": "^0.13.11"
+  }
+}
