@@ -11,13 +11,13 @@
   },
   "dependencies": {
     "@vueuse/core": "^9.13.0",
-    "vitepress": "1.0.0-alpha.48",
+    "vitepress": "1.0.0-alpha.58",
     "vue": "^3.2.47"
   },
   "devDependencies": {
-    "@unocss/reset": "^0.50.1",
+    "@unocss/reset": "^0.50.4",
     "@vitejs/plugin-vue": "^4.0.0",
-    "unocss": "^0.50.1",
+    "unocss": "^0.50.4",
     "vite": "^4.1.4"
   }
 }
